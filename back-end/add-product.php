@@ -1,6 +1,37 @@
+<?php 
+require_once 'config.php';
+
+// Database configuration 
+/* $dbHost     = "localhost"; 
+$dbUsername = "root"; 
+$dbPassword = ""; 
+$dbName     = "ecomm"; 
+ 
+// Create database connection 
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName); 
+ 
+// Check connection 
+if ($db->connect_error) { 
+    die("Connection failed: " . $db->connect_error); 
+} */
+session_start();
+
+    if (!isset($_SESSION['userlogin'])) {
+        header('Location: login.php');
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION);
+        header('Location: login.php');
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Mirrored from themes.pixelstrap.com/multikart/back-end/add-digital-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:39:52 GMT -->
+  <!-- Mirrored from themes.pixelstrap.com/multikart/back-end/add-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:39:34 GMT -->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,7 +55,7 @@
       href="../assets/images/dashboard/favicon.png"
       type="image/x-icon"
     />
-    <title>Multikart - Premium Admin Template</title>
+    <title>Admin</title>
 
     <!-- Google font-->
     <link
@@ -50,11 +81,12 @@
     <!-- Flag icon-->
     <link rel="stylesheet" type="text/css" href="../assets/css/flag-icon.css" />
 
-    <!-- Dropzone css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/dropzone.css" />
-
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
 
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/admin.css" />
@@ -266,7 +298,7 @@
             <div class="sidebar-user text-center">
               <div>
                 <img
-                  class="img-60 rounded-circle"
+                  class="img-60 rounded-circle blur-up lazyloaded"
                   src="../assets/images/dashboard/man.png"
                   alt="#"
                 />
@@ -637,7 +669,7 @@
                   <div class="page-header-left">
                     <h3>
                       Add Products
-                      <small>Multikart Admin panel</small>
+                      <small> Admin panel</small>
                     </h3>
                   </div>
                 </div>
@@ -646,7 +678,7 @@
                     <li class="breadcrumb-item">
                       <a href="index.html"><i data-feather="home"></i></a>
                     </li>
-                    <li class="breadcrumb-item">Digital</li>
+                    <li class="breadcrumb-item">Physical</li>
                     <li class="breadcrumb-item active">Add Product</li>
                   </ol>
                 </div>
@@ -657,130 +689,144 @@
 
           <!-- Container-fluid starts-->
           <div class="container-fluid">
-            <div class="row product-adding">
-              <div class="col-xl-6">
+            <div class="row">
+              <div class="col-sm-12">
                 <div class="card">
                   <div class="card-header">
-                    <h5>General</h5>
+                    <h5>Add Product</h5>
                   </div>
                   <div class="card-body">
-                    <div class="digital-add needs-validation">
-                      <div class="form-group">
-                        <label
-                          for="validationCustom01"
-                          class="col-form-label pt-0"
-                          ><span>*</span> Title</label
+                    <div class="row product-adding">
+                      <div class="col-xl-7">
+                        <form
+                          class="needs-validation add-product-form"
+                          novalidate="" enctype="multipart/form-data"
+                          id="fupForm"
                         >
-                        <input
-                          class="form-control"
-                          id="validationCustom01"
-                          type="text"
-                          required=""
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label
-                          for="validationCustomtitle"
-                          class="col-form-label pt-0"
-                          ><span>*</span> SKU</label
-                        >
-                        <input
-                          class="form-control"
-                          id="validationCustomtitle"
-                          type="text"
-                          required=""
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label class="col-form-label"
-                          ><span>*</span> Categories</label
-                        >
-                        <select class="custom-select" required="">
-                          <option value="">--Select--</option>
-                          <option value="1">eBooks</option>
-                          <option value="2">Graphic Design</option>
-                          <option value="3">3D Impact</option>
-                          <option value="4">Application</option>
-                          <option value="5">Websites</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-form-label">Sort Summary</label>
-                        <textarea rows="5" cols="12"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="validationCustom02" class="col-form-label"
-                          ><span>*</span> Product Price</label
-                        >
-                        <input
-                          class="form-control"
-                          id="validationCustom02"
-                          type="text"
-                          required=""
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label class="col-form-label"
-                          ><span>*</span> Status</label
-                        >
-                        <div
-                          class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated"
-                        >
-                          <label class="d-block" for="edo-ani">
+                            <div class="form-group row">
+                            <label class="col-xl-3 col-sm-4"
+                            for="name"
+                              >Name :</label
+                            >
+                            <div
+                              class="col-xl-8 col-sm-7 pl-0 description-sm"
+                            >
                             <input
-                              class="radio_animated"
-                              id="edo-ani"
-                              type="radio"
-                              name="rdo-ani"
-                            />
-                            Enable
-                          </label>
-                          <label class="d-block" for="edo-ani1">
+                            class="form-control col-xl-8 col-sm-7"
+                            id="name"
+                            name="name"
+                            type="text"
+                            required=""
+                          />
+                              <div class="valid-feedback">Looks good!</div>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-xl-3 col-sm-4"
+                            for="price"
+                              >Price :</label
+                            >
+                            <div
+                              class="col-xl-8 col-sm-7 pl-0 description-sm"
+                            >
                             <input
-                              class="radio_animated"
-                              id="edo-ani1"
-                              type="radio"
-                              name="rdo-ani"
-                            />
-                            Disable
-                          </label>
-                        </div>
-                      </div>
-                      <label class="col-form-label pt-0"> Product Upload</label>
-                      <form
-                        class="dropzone digits"
-                        id="singleFileUpload"
-                        action="http://themes.pixelstrap.com/upload.php"
-                      >
-                        <div class="dz-message needsclick">
-                          <i class="fa fa-cloud-upload"></i>
-                          <h4 class="mb-0 f-w-600">
-                            Drop files here or click to upload.
-                          </h4>
-                        </div>
-                        
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6">
-                
-                <div class="card">
-                  
-                  <div class="card-body">
-                    <div class="digital-add needs-validation">
-                      
-                      
-                      <div class="form-group mb-0">
-                        <div class="product-buttons text-center">
-                          <button type="button" class="btn btn-primary">
-                            Add
-                          </button>
-                          <button type="button" class="btn btn-light">
-                            Discard
-                          </button>
-                        </div>
+                            class="form-control col-xl-8 col-sm-7"
+                            id="price"
+                            name="price"
+                            type="text"
+                            required=""
+                          />
+                              <div class="valid-feedback">Looks good!</div>
+                            </div>
+                          </div>
+                          
+                          <div class="form">
+                            <div class="form-group row">
+                              <label
+                                for="category"
+                                class="col-xl-3 col-sm-4 mb-0"
+                                >Select Category :</label
+                              >
+                              <div class="valid-feedback">Looks good!</div>
+                              <select
+                                class="form-control digits col-xl-8 col-sm-7"
+                                id="category" name="category"
+                              >
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                                <option>Extra Large</option>
+                              </select>
+                             
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-xl-3 col-sm-4 mb-0"
+                              for="quantity"
+                                >Total Products :</label
+                              >
+                              <fieldset
+                                class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0"      >
+                                <div class="input-group">
+                                  <input
+                                    id="quantity"
+                                    name="quantity"
+                                    class="touchspin"
+                                    type="text"
+                                    value="1"
+                                  />
+                                </div>
+                                <div class="valid-feedback">Looks good!</div>
+                              </fieldset>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-xl-3 col-sm-4"
+                                for="descrption"
+                                >Add Description :</label
+                              >
+                              <div
+                                class="col-xl-8 col-sm-7 pl-0 description-sm"
+                              >
+                                <textarea
+                                  class="form-control"
+                                  name="description"
+                                  id="description"
+                                  type="text"
+                                  required=""
+                                  rows="3"
+                                ></textarea>
+                                <div class="valid-feedback">Looks good!</div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-xl-3 col-sm-4"
+                                for="image"
+                                >Upload Image :</label>
+                              <div
+                                class="col-xl-8 col-sm-7 pl-0 description-sm"
+                              >
+                                <input
+                                name="image"
+                                  type="file"
+                                  class="form-control-file"
+                                  id="image"
+                         
+                                required=""
+                                  
+                                />
+                                <div class="valid-feedback">Looks good!</div>
+                              </div>
+                            </div>
+                          </div>
+                          <br />
+                          <div class="offset-xl-3 offset-sm-4">
+                            <button type="submit" class="btn btn-primary" name="submit">
+                              Add
+                            </button>
+                            <button type="button" class="btn btn-light">
+                              Discard
+                            </button>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -797,7 +843,7 @@
             <div class="row">
               <div class="col-md-6 footer-copyright">
                 <p class="mb-0">
-                  Copyright 2019 © Multikart All rights reserved.
+                  Copyright 2020 © Trayton All rights reserved.
                 </p>
               </div>
               <div class="col-md-6">
@@ -814,6 +860,7 @@
 
     <!-- latest jquery-->
     <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Bootstrap js-->
     <script src="../assets/js/popper.min.js"></script>
@@ -826,15 +873,23 @@
     <!-- Sidebar jquery-->
     <script src="../assets/js/sidebar-menu.js"></script>
 
-    <!--dropzone js-->
-    <script src="../assets/js/dropzone/dropzone.js"></script>
-    <script src="../assets/js/dropzone/dropzone-script.js"></script>
+    <!-- touchspin js-->
+    <script src="../assets/js/touchspin/vendors.min.js"></script>
+    <script src="../assets/js/touchspin/touchspin.js"></script>
+    <script src="../assets/js/touchspin/input-groups.min.js"></script>
 
-    <!--ckeditor js-->
+    <!-- form validation js-->
+    <script src="../assets/js/dashboard/form-validation-custom.js"></script>
+
+    <!-- ckeditor js-->
     <script src="../assets/js/editor/ckeditor/ckeditor.js"></script>
     <script src="../assets/js/editor/ckeditor/styles.js"></script>
     <script src="../assets/js/editor/ckeditor/adapters/jquery.js"></script>
     <script src="../assets/js/editor/ckeditor/ckeditor.custom.js"></script>
+
+    <!-- Zoom js-->
+    <script src="../assets/js/jquery.elevatezoom.js"></script>
+    <script src="../assets/js/zoom-scripts.js"></script>
 
     <!--Customizer admin-->
     <script src="../assets/js/admin-customizer.js"></script>
@@ -849,5 +904,5 @@
     <script src="../assets/js/admin-script.js"></script>
   </body>
 
-  <!-- Mirrored from themes.pixelstrap.com/multikart/back-end/add-digital-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:39:54 GMT -->
+  <!-- Mirrored from themes.pixelstrap.com/multikart/back-end/add-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:39:48 GMT -->
 </html>
