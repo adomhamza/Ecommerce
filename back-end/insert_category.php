@@ -16,7 +16,7 @@ $category_name = $mysqli->real_escape_string($_REQUEST['category_name']);
 
 // Attempt insert query execution
 $id = $_SESSION['userlogin']["admin_id"];
-$sql = "INSERT INTO category (category_name, createdBy,updatedBy) VALUES ('{$category_name}', '{$id}' , '{$id}')";
+$sql = "INSERT INTO category (category_name,createdBy,updatedBy) VALUES ('{$category_name}', '{$id}' , '{$id}')";
 if (true === $mysqli->query($sql)) {
     echo 'Records inserted successfully.';
     
