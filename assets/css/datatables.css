@@ -427,7 +427,7 @@ table.dataTable thead .sorting_asc {
   background-image: url("../images/sort_asc.png"); }
 
 table.dataTable thead .sorting_desc {
-  background-image: url("../images/sort_desc.png"); }
+  background-image: url("../images/sort_desc.html"); }
 
 table.dataTable thead .sorting_asc_disabled {
   background-image: url("../images/sort_asc_disabled.html"); }
