@@ -89,38 +89,7 @@ if (isset($_GET['logout'])) {
                     <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize-2"></i></a></li>
 
-                    <!--  <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
-                         <ul class="notification-dropdown onhover-show-div p-0">
-                             <li>Notification <span class="badge badge-pill badge-primary pull-right">3</span></li>
-                             <li>
-                                 <div class="media">
-                                     <div class="media-body">
-                                         <h6 class="mt-0"><span><i class="shopping-color" data-feather="shopping-bag"></i></span>Your order ready for Ship..!</h6>
-                                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
-                                     </div>
-                                 </div>
-                             </li>
-                             <li>
-                                 <div class="media">
-                                     <div class="media-body">
-                                         <h6 class="mt-0 txt-success"><span><i class="download-color font-success" data-feather="download"></i></span>Download Complete</h6>
-                                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
-                                     </div>
-                                 </div>
-                             </li>
-                             <li>
-                                 <div class="media">
-                                     <div class="media-body">
-                                         <h6 class="mt-0 txt-danger"><span><i class="alert-color font-danger" data-feather="alert-circle"></i></span>250 MB trash files</h6>
-                                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
-                                     </div>
-                                 </div>
-                             </li>
-                             <li class="txt-dark"><a href="#">All</a> notification</li>
-                         </ul>
-                     </li> -->
-                    <!-- <li><a href="#"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
-                     -->
+                    
                     <li class="onhover-dropdown">
                         <div class="media align-items-center"><img
                                     class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded"
@@ -258,41 +227,45 @@ if (isset($_GET['logout'])) {
                                         <thead>
                                         <tr>
                                             <th scope="col">Order ID</th>
+                                            <th scope="col">Customer Name</th>
+                                            <th scope="col">Phone Number</th>
                                             <th scope="col">Order Total</th>
-                                            <th scope="col">Payment Method</th>
-                                            <th scope="col">Status</th>
+                                           
+                                           
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>1</td>
+                                            
+                                            <td class="font-primary">John</td>
+                                            <td class="font-warning">12332145653</td>
                                             <td class="digits">$120.00</td>
-                                            <td class="font-danger">Bank Transfers</td>
-                                            <td class="digits">On Way</td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td class="digits">$90.00</td>
-                                            <td class="font-secondary">Ewallets</td>
-                                            <td class="digits">Delivered</td>
+                                            <td class="font-primary">John</td>
+                                            <td class="font-warning">12332145653</td>
+                                            <td class="digits">$120.00</td>
+                                            
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td class="digits"></td>
-                                            <td class="font-warning">Cash</td>
-                                            <td class="digits">Delivered</td>
+                                            <td class="font-primary">John</td>
+                                            <td class="font-warning">12332145653</td>
+                                            <td class="digits">$120.00</td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
+                                            <td class="font-primary">John</td>
+                                            <td class="font-warning">12332145653</td>
                                             <td class="digits">$120.00</td>
-                                            <td class="font-primary">Direct Deposit</td>
-                                            <td class="digits">$6523</td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td class="digits">$50.00</td>
-                                            <td class="font-primary">Bank Transfers</td>
-                                            <td class="digits">Delivered</td>
+                                            <td class="font-primary">John</td>
+                                            <td class="font-warning">12332145653</td>
+                                            <td class="digits">$120.00</td>
                                         </tr>
                                         </tbody>
                                     </table>

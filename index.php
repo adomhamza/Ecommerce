@@ -25,16 +25,19 @@ $product = mysqli_query($db, 'SELECT * FROM product');
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Ecommerce Store">
     <meta name="author" content="SW-THEMES">
-        
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
-    
+
     <script type="text/javascript">
         WebFontConfig = {
-            google: { families: [ 'Open+Sans:300,400,600,700,800','Poppins:300,400,500,600,700','Segoe Script:300,400,500,600,700' ] }
+            google: {
+                families: ['Open+Sans:300,400,600,700,800', 'Poppins:300,400,500,600,700', 'Segoe Script:300,400,500,600,700']
+            }
         };
         (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
+            var wf = d.createElement('script'),
+                s = d.scripts[0];
             wf.src = 'assets/js/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
@@ -48,21 +51,22 @@ $product = mysqli_query($db, 'SELECT * FROM product');
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome-free/css/all.min.css">
 </head>
+
 <body>
     <div class="page-wrapper">
         <header class="header">
             <div class="header-top">
                 <div class="container">
                     <div class="header-left header-dropdowns">
-                        
-                       
+
+
 
                         <div class="dropdown compare-dropdown">
-                           <!--  <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <!--  <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-retweet"></i> Compare (2)
                             </a> -->
 
-                            <div class="dropdown-menu" >
+                            <div class="dropdown-menu">
                                 <div class="dropdownmenu-wrapper">
                                     <ul class="compare-products">
                                         <li class="product">
@@ -88,17 +92,9 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                         <p class="welcome-msg"> Welcome msg! </p>
 
                         <div class=" dropdown-expanded">
-                             <a href="product.php">Log In</a> 
-                            <!-- <div class="header-menu">
-                                <ul>
-                                    <li><a href="my-account.html">MY ACCOUNT </a></li>
-                                    <li><a href="#">DAILY DEAL</a></li>
-                                    <li><a href="#">MY WISHLIST </a></li>
-                                    <li><a href="blog.html">BLOG</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="#" class="login-link">LOG IN</a></li>
-                                </ul>
-                            </div> --><!-- End .header-menu -->
+                            <a href="product.php">Log In</a>
+
+                            <!-- End .header-menu -->
                         </div><!-- End .header-dropown -->
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
@@ -124,9 +120,9 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                             <option value="">All Categories</option>
                                             <option value="4">Fashion</option>
                                             <option value="12">- Women</option>
-                                           
-                                           
-                                            
+
+
+
                                         </select>
                                     </div><!-- End .select-custom -->
                                     <button class="btn" type="submit"><i class="icon-magnifier"></i></button>
@@ -149,7 +145,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                 <span class="cart-count">2</span>
                             </a>
 
-                            <div class="dropdown-menu" >
+                            <div class="dropdown-menu">
                                 <div class="dropdownmenu-wrapper">
                                     <div class="dropdown-cart-products">
                                         <div class="product">
@@ -214,11 +210,11 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                 <div class="container">
                     <nav class="main-nav">
                         <ul class="menu sf-arrows">
-                            <li class="active"><a href="index-2.html">Home</a></li>
+                            <li class="active"><a href="index.php">Home</a></li>
 
 
-                            
-                           <!--  <li class="float-right"><a href="https://1.envato.market/DdLk5" target="_blank">Buy Porto!</a></li>
+
+                            <!--  <li class="float-right"><a href="https://1.envato.market/DdLk5" target="_blank">Buy Porto!</a></li>
                             <li class="float-right"><a href="#">Special Offer!</a></li> -->
                         </ul>
                     </nav>
@@ -227,14 +223,14 @@ $product = mysqli_query($db, 'SELECT * FROM product');
         </header><!-- End .header -->
 
         <main class="main">
-        <div class="container">
+            <div class="container">
                 <div class="home-slider owl-carousel owl-carousel-lazy owl-theme">
                     <div class="home-slide">
-                        <a href="category.html"><img class="owl-lazy" src="assets/images/lazy.png" data-src="assets/images/slider/slide-1.jpg" alt="slider image"></a>
+                        <img class="owl-lazy" src="assets/images/blog/post-1.jpg" alt="Post">
                     </div><!-- End .home-slide -->
 
                     <div class="home-slide">
-                        <a href="category.html"><img class="owl-lazy" src="assets/images/lazy.png" data-src="assets/images/slider/slide-2.jpg" alt="slider image"></a>
+                        <img class="owl-lazy" src="assets/images/blog/post-2.jpg" alt="Post">
                     </div><!-- End .home-slide -->
                 </div><!-- End .home-slider -->
             </div><!-- End .container -->
@@ -246,7 +242,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
 
                         <div class="info-box-content">
                             <h4>FREE SHIPPING & RETURN</h4>
-                            
+
                         </div><!-- End .info-box-content -->
                     </div><!-- End .info-box -->
 
@@ -255,7 +251,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
 
                         <div class="info-box-content">
                             <h4>MONEY BACK GUARANTEE</h4>
-                            
+
                         </div><!-- End .info-box-content -->
                     </div><!-- End .info-box -->
 
@@ -277,8 +273,8 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                         <div class="row row-sm justify-content-center">
 
                             <?php
-                            while ($row = mysqli_fetch_array($product)){
-                              ?>
+                            while ($row = mysqli_fetch_array($product)) {
+                            ?>
                                 <div class="col-6 col-md-4 col-xl-3">
                                     <div class="product-default">
                                         <figure>
@@ -297,7 +293,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                                 <a href="product.php"><?php echo $row['product_name'] ?></a>
                                             </h2>
                                             <div class="price-box">
-                                                <span class="product-price">&#8373; <?php echo $row['product_price']?>.00</span>
+                                                <span class="product-price">&#8373; <?php echo $row['product_price'] ?>.00</span>
                                             </div><!-- End .price-box -->
                                             <div class="product-action">
                                                 <!-- <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a> -->
@@ -307,7 +303,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                         </div><!-- End .product-details -->
                                     </div>
                                 </div>
-                                <?php
+                            <?php
                             }
                             ?>
 
@@ -317,8 +313,8 @@ $product = mysqli_query($db, 'SELECT * FROM product');
 
 
                             <!-- End .col-xl-3 -->
-                            
-                            
+
+
 
 
 
@@ -329,13 +325,13 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                     <aside class="sidebar-home col-lg-3 order-lg-first">
                         <div class="widget widget-cats">
                             <h3 class="widget-title"><i class="icon-menu"></i>Shop By Categories</h3>
-                            
+
                             <ul class="catAccordion">
                                 <li>
                                     <a href="category.html">Home</a>
                                 </li>
                                 <li>
-                                    <a href="category.html">Fashion</a> 
+                                    <a href="category.html">Fashion</a>
                                     <button class="accordion-btn collapsed" type="button" data-toggle="collapse" data-target="#accordion-ul-1" aria-expanded="false" aria-controls="accordion-ul-1"></button>
 
                                     <ul class="collapse" id="accordion-ul-1">
@@ -349,7 +345,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
 
 
 
-                               
+
                             </ul>
                         </div><!-- End .widget -->
 
@@ -605,7 +601,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                             </li>
                                         </ul>
                                     </div><!-- End .col-md-6 -->
-                                    
+
                                     <div class="col-md-6">
                                         <ul class="contact-info">
                                             <li>
@@ -624,7 +620,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="widget">
-                                         <h4 class="widget-title">Featured Products</h4> 
+                                        <h4 class="widget-title">Featured Products</h4>
 
                                         <div class="product product-sm">
                                             <figure class="product-image-container">
@@ -691,7 +687,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                 </div><!-- End .col-md-6 -->
                                 <div class="col-md-6">
                                     <div class="widget">
-                                         <h4 class="widget-title">Featured Products</h4> 
+                                        <h4 class="widget-title">Featured Products</h4>
 
                                         <div class="product product-sm">
                                             <figure class="product-image-container">
@@ -757,9 +753,9 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                     </div><!-- End .widget -->
                                 </div>
 
-                                
 
-                               
+
+
                             </div><!-- End .row -->
                         </div><!-- End .col-lg-6 -->
                     </div><!-- End .row -->
@@ -794,18 +790,18 @@ $product = mysqli_query($db, 'SELECT * FROM product');
 
                         <div class="col-lg-5">
                             <div class="widget">
-                               <!--  <h4 class="widget-title">Main Features</h4> -->
-                                
+                                <!--  <h4 class="widget-title">Main Features</h4> -->
+
                                 <div class="row">
                                     <div class="col-sm-6">
-                                       <!--  <ul class="links">
+                                        <!--  <ul class="links">
                                             <li><a href="#">Super Fast Magento Theme</a></li>
                                             <li><a href="#">1st Fully working Ajax Theme</a></li>
                                             <li><a href="#">20 Unique Homepage Layouts</a></li>
                                         </ul> -->
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-6">
-                                        
+
                                     </div><!-- End .col-sm-6 -->
                                 </div><!-- End .row -->
                             </div><!-- End .widget -->
@@ -828,7 +824,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                 <div class="footer-bottom">
                     <div class="row align-items-center">
                         <div class="col-lg-4">
-                            <p class="footer-copyright">Trayton eCommerce. &copy;  2020.  All Rights Reserved</p>
+                            <p class="footer-copyright">Trayton eCommerce. &copy; 2020. All Rights Reserved</p>
                         </div><!-- End .col-lg-4 -->
 
                         <div class="col-lg-5">
@@ -843,7 +839,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                         </div><!-- End .col-lg-5 -->
 
                         <div class="col-lg-3">
-                              </div><!-- End .col-lg-3 -->
+                        </div><!-- End .col-lg-3 -->
                     </div><!-- End .row -->
                 </div><!-- End .footer-bottom -->
             </div><!-- End .container -->
@@ -851,7 +847,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
     </div><!-- End .page-wrapper -->
 
     <div class="mobile-menu-overlay">
-    
+
     </div><!-- End .mobil-menu-overlay -->
 
     <div class="mobile-menu-container">
@@ -864,8 +860,8 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                         <a href="category.html">Categories</a>
                         <ul>
                             <li><a href="category-banner-full-width.html">Full Width Banner</a></li>
-                           
-                            
+
+
                         </ul>
                     </li>
                     <li>
@@ -874,7 +870,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                             <li>
                                 <a href="#">Variations</a>
                                 <ul>
-                                   
+
                                     <li><a href="my-account.html">MY ACCOUNT </a></li>
                                     <!-- <li><a href="#">DAILY DEAL</a></li>
                                     <li><a href="#">MY WISHLIST </a></li>
@@ -883,12 +879,12 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                     <li><a href="#" class="login-link">LOG IN</a></li>
                                 </ul>
                             </li>
-                           
-                           
+
+
                         </ul>
                     </li>
                     <li>
-                        
+
                         <ul>
                             <li><a href="cart.html">Shopping Cart</a></li>
                             <li>
@@ -904,9 +900,9 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                             <li><a href="forgot-password.html">Forgot Password</a></li>
                         </ul>
                     </li>
-                    
+
                     <li><a href="contact.html">Contact Us</a></li>
-                   
+
                 </ul>
             </nav><!-- End .mobile-nav -->
 
@@ -919,22 +915,22 @@ $product = mysqli_query($db, 'SELECT * FROM product');
     </div>
     <!-- End .mobile-menu-container -->
 
-   
+
     <!-- Add Cart Modal -->
     <div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body add-cart-box text-center">
-            <p>You've just added this product to the<br>cart:</p>
-            <h4 id="productTitle"></h4>
-            <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
-            <div class="btn-actions">
-                <a href="cart.html"><button class="btn-primary">Go to cart page</button></a>
-                <a href="#"><button class="btn-primary" data-dismiss="modal">Continue</button></a>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body add-cart-box text-center">
+                    <p>You've just added this product to the<br>cart:</p>
+                    <h4 id="productTitle"></h4>
+                    <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
+                    <div class="btn-actions">
+                        <a href="cart.html"><button class="btn-primary">Go to cart page</button></a>
+                        <a href="#"><button class="btn-primary" data-dismiss="modal">Continue</button></a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
