@@ -25,4 +25,4 @@ if (true === $mysqli->query($sql)) {
 }
 
 // Close connection
-$mysqli->close();
+//$mysqli->close();

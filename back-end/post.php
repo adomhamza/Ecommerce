@@ -63,7 +63,7 @@ move_uploaded_file($_FILES["e5"]["tmp_name"][$key],"images/".$_FILES["e5"]["name
 
        if($con->query($d)==TRUE)
          {
-         echo "Yoy Data Save Successfully!!!";
+         echo "Your Data Save Successfully!!!";
          }
 }
 exit;
