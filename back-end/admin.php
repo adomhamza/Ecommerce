@@ -1,6 +1,13 @@
 <?php
 
-session_start();
+include('functions.php');	
+
+if (!isLoggedIn()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+/* session_start();
+
 
 if (!isset($_SESSION['userlogin'])) {
     header('Location: login.php');
@@ -11,7 +18,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION);
     header('Location: login.php');
 }
-
+ */
 
 ?>
 <!DOCTYPE html>

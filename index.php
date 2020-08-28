@@ -1,17 +1,16 @@
 <?php
-
 session_start();
+//session_destroy();
 
 // Create database connection
-$db = mysqli_connect('localhost', 'root', '', 'ecomm');
-
-$product = mysqli_query($db, 'SELECT * FROM product');
-
-
+//$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+include_once("inc/db_connect.php");
+include("inc/config.inc.php");
 
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,12 +43,20 @@ $product = mysqli_query($db, 'SELECT * FROM product');
         })(document);
     </script>
 
+    <!--jquery-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Main CSS File -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome-free/css/all.min.css">
+    <script type="text/javascript" src="script/cart.js"></script>
 </head>
 
 <body>
@@ -61,35 +68,13 @@ $product = mysqli_query($db, 'SELECT * FROM product');
 
 
 
-                        <div class="dropdown compare-dropdown">
-                            <!--  <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="icon-retweet"></i> Compare (2)
-                            </a> -->
 
-                            <div class="dropdown-menu">
-                                <div class="dropdownmenu-wrapper">
-                                    <ul class="compare-products">
-                                        <li class="product">
-                                            <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
-                                            <h4 class="product-title"><a href="product.php">Lady White Top</a></h4>
-                                        </li>
-                                        <li class="product">
-                                            <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
-                                            <h4 class="product-title"><a href="product.php">Blue Women Shirt</a></h4>
-                                        </li>
-                                    </ul>
-
-                                    <div class="compare-actions">
-                                        <a href="#" class="action-link">Clear All</a>
-                                        <a href="#" class="btn btn-primary">Compare</a>
-                                    </div>
-                                </div><!-- End .dropdownmenu-wrapper -->
-                            </div><!-- End .dropdown-menu -->
-                        </div><!-- End .dropdown -->
                     </div><!-- End .header-left -->
 
                     <div class="header-right">
-                        <p class="welcome-msg"> Welcome msg! </p>
+                        <p class="welcome-msg">
+                            <pre><?php print_r($_SESSION) ?></pre>
+                        </p>
 
                         <div class=" dropdown-expanded">
                             <a href="product.php">Log In</a>
@@ -103,7 +88,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
             <div class="header-middle">
                 <div class="container">
                     <div class="header-left">
-                        <a href="index-2.html" class="logo">
+                        <a href="index.php" class="logo">
                             <!--<img src="assets/images/logo.png" alt="Porto Logo">-->
                             <h2>Trayton Shop</h2>
                         </a>
@@ -118,10 +103,11 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                     <div class="select-custom">
                                         <select id="cat" name="cat">
                                             <option value="">All Categories</option>
-                                            <option value="4">Fashion</option>
+
                                             <option value="12">- Women</option>
-
-
+                                            <option value="13">- Men</option>
+                                            <option value="66">- Jewellery</option>
+                                            <option value="67">- Kids Fashion</option>
 
                                         </select>
                                     </div><!-- End .select-custom -->
@@ -141,66 +127,17 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                         </div><!-- End .header-contact -->
 
                         <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <span class="cart-count">2</span>
+                            <a href="cart.php" class="dropdown-toggle" role="button">
+                                <span class="cart-count" id="cart-container"><?php
+                                                                                if (isset($_SESSION["products"])) {
+                                                                                    echo count($_SESSION["products"]);
+                                                                                } else {
+                                                                                    echo 0;
+                                                                                }
+                                                                                ?></span>
                             </a>
 
-                            <div class="dropdown-menu">
-                                <div class="dropdownmenu-wrapper">
-                                    <div class="dropdown-cart-products">
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.php">Woman Ring</a>
-                                                </h4>
 
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span>
-                                                    x $99.00
-                                                </span>
-                                            </div><!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/cart/product-1.jpg" alt="product">
-                                                </a>
-                                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
-                                            </figure>
-                                        </div><!-- End .product -->
-
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.php">Woman Necklace</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span>
-                                                    x $35.00
-                                                </span>
-                                            </div><!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/cart/product-2.jpg" alt="product">
-                                                </a>
-                                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
-                                            </figure>
-                                        </div><!-- End .product -->
-                                    </div><!-- End .cart-product -->
-
-                                    <div class="dropdown-cart-total">
-                                        <span>Total</span>
-
-                                        <span class="cart-total-price">$134.00</span>
-                                    </div><!-- End .dropdown-cart-total -->
-
-                                    <div class="dropdown-cart-action">
-                                        <a href="cart.html" class="btn">View Cart</a>
-                                        <a href="checkout-shipping.html" class="btn">Checkout</a>
-                                    </div><!-- End .dropdown-cart-total -->
-                                </div><!-- End .dropdownmenu-wrapper -->
-                            </div><!-- End .dropdown-menu -->
                         </div><!-- End .dropdown -->
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
@@ -273,35 +210,45 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                         <div class="row row-sm justify-content-center">
 
                             <?php
-                            while ($row = mysqli_fetch_array($product)) {
+                            $query = 'SELECT * FROM product ORDER BY product_id DESC';
+                            $result = mysqli_query($conn, $query) or die("database error:" . mysqli_error($conn));
+
+                            while ($row = mysqli_fetch_array($result)) {
                             ?>
                                 <div class="col-6 col-md-4 col-xl-3">
-                                    <div class="product-default">
-                                        <figure>
-                                            <a href="product.php">
-                                                <img style="height: 240px; width: 250px;" src="back-end/images/<?php echo $row['product_image'] ?>">
-                                            </a>
-                                        </figure>
-                                        <div class="product-details">
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div><!-- End .product-ratings -->
-                                            </div><!-- End .product-container -->
-                                            <h2 class="product-title">
-                                                <a href="product.php"><?php echo $row['product_name'] ?></a>
-                                            </h2>
-                                            <div class="price-box">
-                                                <span class="product-price">&#8373; <?php echo $row['product_price'] ?>.00</span>
-                                            </div><!-- End .price-box -->
-                                            <div class="product-action">
-                                                <!-- <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a> -->
-                                                <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-bag"></i>ADD TO CART</button>
-                                                <!--<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a>-->
-                                            </div>
-                                        </div><!-- End .product-details -->
-                                    </div>
+                                    <form class="product-form">
+
+                                        <div class="product-default">
+                                            <figure>
+                                                <a href="product.php">
+                                                    <img style="height: 240px; width: 250px;" src="back-end/images/<?php echo $row['product_image'] ?>">
+                                                </a>
+                                            </figure>
+                                            <div class="product-details">
+                                                <div class="ratings-container">
+                                                    <div class="product-ratings">
+                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div><!-- End .product-ratings -->
+                                                </div><!-- End .product-container -->
+                                                <h2 class="product-title">
+                                                    <a href="product.php"><?php echo $row['product_name'] ?></a>
+                                                </h2>
+                                                <div class="price-box">
+                                                    <span class="product-price">&#8373; <?php echo number_format($row['product_price'], 2) ?></span>
+                                                </div><!-- End .price-box -->
+                                                <div class="product-action">
+
+                                                    <input name="product_qty" type="hidden" value="1">
+                                                    <input name="product_id" type="hidden" value="<?php echo $row["product_id"]; ?>">
+                                                    <button class="btn-icon btn-add-cart"  type="submit"><i class="icon-bag"></i>ADD TO CART</button>
+                                                    <!-- class="btn-icon btn-add-cart" -->
+                                                    <!--<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a>-->
+                                                </div>
+                                            </div><!-- End .product-details -->
+                                        </div>
+                                    </form>
+
                                 </div>
                             <?php
                             }
@@ -581,269 +528,9 @@ $product = mysqli_query($db, 'SELECT * FROM product');
             <div class="mb-5 mb-md-6 mb-lg-7"></div><!-- margin -->
         </main><!-- End .main -->
 
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-top">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="widget widget-about">
-                                <h4 class="widget-title">About Us</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique augue eget enim feugiat blandit. Phasellus bibendum ex leo, at egestas lacus pellentesque in x leo, at egestas lacus.</p>
-                            </div><!-- End .widget -->
-
-                            <div class="widget">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 class="widget-title">Contact Info</h4>
-                                        <ul class="contact-info">
-                                            <li>
-                                                <span class="contact-info-label">Address:</span>123 Street Name, City, England<br>Pintrest street oklar
-                                            </li>
-                                        </ul>
-                                    </div><!-- End .col-md-6 -->
-
-                                    <div class="col-md-6">
-                                        <ul class="contact-info">
-                                            <li>
-                                                <span class="contact-info-label">Phone:</span>Toll Free <a href="tel:">(123) 456-7890</a>
-                                            </li>
-                                            <li>
-                                                <span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">mail@example.com</a>
-                                            </li>
-                                        </ul>
-                                    </div><!-- End .col-md-6 -->
-                                </div><!-- End .row -->
-                            </div><!-- End .widget -->
-                        </div><!-- End .col-lg-6 -->
-
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Featured Products</h4>
-
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.php">Black Watch</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$35.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div><!-- End .product -->
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.php">Black Watch</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$35.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div><!-- End .product -->
-
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/small/product-5.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.php">Light Watch</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:50%"></span><!-- End .ratings -->
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$60.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div><!-- End .product -->
-                                    </div><!-- End .widget -->
-                                </div><!-- End .col-md-6 -->
-                                <div class="col-md-6">
-                                    <div class="widget">
-                                        <h4 class="widget-title">Featured Products</h4>
-
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.php">Black Watch</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$35.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div><!-- End .product -->
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.php">Black Watch</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$35.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div><!-- End .product -->
-
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.php" class="product-image">
-                                                    <img src="assets/images/products/small/product-5.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.php">Light Watch</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:50%"></span><!-- End .ratings -->
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$60.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div><!-- End .product -->
-                                    </div><!-- End .widget -->
-                                </div>
+        <?php include('inc/footer.php'); ?>
 
 
-
-
-                            </div><!-- End .row -->
-                        </div><!-- End .col-lg-6 -->
-                    </div><!-- End .row -->
-                </div><!-- End .footer-top -->
-            </div><!-- End .container -->
-
-            <div class="footer-middle">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="widget">
-                                <h4 class="widget-title">My Account</h4>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <ul class="links">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                        </ul>
-                                    </div><!-- End .col-sm-6 -->
-                                    <div class="col-sm-6">
-                                        <ul class="links">
-                                            <li><a href="#">Orders History</a></li>
-                                            <li><a href="#">Advanced Search</a></li>
-                                            <li><a href="#" class="login-link">Login</a></li>
-                                        </ul>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
-                            </div><!-- End .widget -->
-                        </div><!-- End .col-lg-4 -->
-
-                        <div class="col-lg-5">
-                            <div class="widget">
-                                <!--  <h4 class="widget-title">Main Features</h4> -->
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!--  <ul class="links">
-                                            <li><a href="#">Super Fast Magento Theme</a></li>
-                                            <li><a href="#">1st Fully working Ajax Theme</a></li>
-                                            <li><a href="#">20 Unique Homepage Layouts</a></li>
-                                        </ul> -->
-                                    </div><!-- End .col-sm-6 -->
-                                    <div class="col-sm-6">
-
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
-                            </div><!-- End .widget -->
-                        </div><!-- End .col-lg-5 -->
-
-                        <div class="col-lg-3">
-                            <div class="widget widget-social">
-                                <div class="social-icons">
-                                    <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
-                                    <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
-                                    <a href="#" class="social-icon" target="_blank"><i class="icon-linkedin"></i></a>
-                                </div><!-- End .social-icons -->
-                            </div><!-- End .col-md-3 -->
-                        </div><!-- End .col-lg-3 -->
-                    </div><!-- End .row -->
-                </div><!-- End .container -->
-            </div><!-- End .footer-middle -->
-
-            <div class="container">
-                <div class="footer-bottom">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4">
-                            <p class="footer-copyright">Trayton eCommerce. &copy; 2020. All Rights Reserved</p>
-                        </div><!-- End .col-lg-4 -->
-
-                        <div class="col-lg-5">
-                            <div class="widget widget-newsletter">
-                                <h4 class="widget-title">newsletter</h4>
-                                <form action="#">
-                                    <input type="email" class="form-control" placeholder="Email address" required>
-
-                                    <input type="submit" class="btn" value="Subscribe">
-                                </form>
-                            </div><!-- End .widget -->
-                        </div><!-- End .col-lg-5 -->
-
-                        <div class="col-lg-3">
-                        </div><!-- End .col-lg-3 -->
-                    </div><!-- End .row -->
-                </div><!-- End .footer-bottom -->
-            </div><!-- End .container -->
-        </footer><!-- End .footer -->
     </div><!-- End .page-wrapper -->
 
     <div class="mobile-menu-overlay">
@@ -874,7 +561,7 @@ $product = mysqli_query($db, 'SELECT * FROM product');
                                     <li><a href="my-account.html">MY ACCOUNT </a></li>
                                     <!-- <li><a href="#">DAILY DEAL</a></li>
                                     <li><a href="#">MY WISHLIST </a></li>
-                                    <li><a href="blog.html">BLOG</a></li>
+                                    
                                     <li><a href="contact.html">Contact</a></li> -->
                                     <li><a href="#" class="login-link">LOG IN</a></li>
                                 </ul>
@@ -916,22 +603,8 @@ $product = mysqli_query($db, 'SELECT * FROM product');
     <!-- End .mobile-menu-container -->
 
 
-    <!-- Add Cart Modal -->
-    <div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body add-cart-box text-center">
-                    <p>You've just added this product to the<br>cart:</p>
-                    <h4 id="productTitle"></h4>
-                    <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
-                    <div class="btn-actions">
-                        <a href="cart.html"><button class="btn-primary">Go to cart page</button></a>
-                        <a href="#"><button class="btn-primary" data-dismiss="modal">Continue</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
