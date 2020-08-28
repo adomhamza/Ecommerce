@@ -1,8 +1,7 @@
     <!DOCTYPE html>
     <html lang="en">
 
-    <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo_14/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 12 Jun 2020 23:46:16 GMT -->
-
+    
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,7 +94,7 @@
                 <div class="header-middle">
                     <div class="container">
                         <div class="header-left">
-                            <a href="index-2.html" class="logo">
+                            <a href="index.php" class="logo">
                                 <!--<img src="assets/images/logo.png" alt="Porto Logo">-->
                                 <h2>Trayton Shop</h2>
                             </a>
@@ -133,67 +132,17 @@
                             </div><!-- End .header-contact -->
 
                             <div class="dropdown cart-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                    <span class="cart-count">2</span>
-                                </a>
+                            <a href="#" class="dropdown-toggle" role="button">
+                                <span class="cart-count" id="cart-container"><?php
+                                                                                if (isset($_SESSION["products"])) {
+                                                                                    echo count($_SESSION["products"]);
+                                                                                } else {
+                                                                                    echo 0;
+                                                                                }
+                                                                                ?></span>
+                            </a>
 
-                                <div class="dropdown-menu" >
-                                    <div class="dropdownmenu-wrapper">
-                                        <div class="dropdown-cart-products">
-                                            <div class="product">
-                                                <div class="product-details">
-                                                    <h4 class="product-title">
-                                                        <a href="product.html">Woman Ring</a>
-                                                    </h4>
-
-                                                    <span class="cart-product-info">
-                                                        <span class="cart-product-qty">1</span>
-                                                        x $99.00
-                                                    </span>
-                                                </div><!-- End .product-details -->
-
-                                                <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
-                                                        <img src="assets/images/products/cart/product-1.jpg" alt="product">
-                                                    </a>
-                                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
-                                                </figure>
-                                            </div><!-- End .product -->
-
-                                            <div class="product">
-                                                <div class="product-details">
-                                                    <h4 class="product-title">
-                                                        <a href="product.html">Woman Necklace</a>
-                                                    </h4>
-
-                                                    <span class="cart-product-info">
-                                                        <span class="cart-product-qty">1</span>
-                                                        x $35.00
-                                                    </span>
-                                                </div><!-- End .product-details -->
-
-                                                <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
-                                                        <img src="assets/images/products/cart/product-2.jpg" alt="product">
-                                                    </a>
-                                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
-                                                </figure>
-                                            </div><!-- End .product -->
-                                        </div><!-- End .cart-product -->
-
-                                        <div class="dropdown-cart-total">
-                                            <span>Total</span>
-
-                                            <span class="cart-total-price">$134.00</span>
-                                        </div><!-- End .dropdown-cart-total -->
-
-                                        <div class="dropdown-cart-action">
-                                            <a href="cart.html" class="btn">View Cart</a>
-                                            <a href="checkout-shipping.html" class="btn">Checkout</a>
-                                        </div><!-- End .dropdown-cart-total -->
-                                    </div><!-- End .dropdownmenu-wrapper -->
-                                </div><!-- End .dropdown-menu -->
-                            </div><!-- End .dropdown -->
+                        </div><!-- End .dropdown -->
                         </div><!-- End .header-right -->
                     </div><!-- End .container -->
                 </div><!-- End .header-middle -->
@@ -231,7 +180,7 @@
                                 <div class="row">
                                     <div class="col-lg-7 col-md-6 product-single-gallery">
                                         <div class="product-slider-container product-item">
-                                            <div class="product-single-carousel owl-carousel owl-theme">
+                                             <div class="product-single-carousel owl-carousel owl-theme">
                                                 <div class="product-item">
                                                     <img class="product-single-image" src="assets/images/products/zoom/product-1.jpg" data-zoom-image="assets/images/products/zoom/product-1-big.jpg"/>
                                                 </div>
@@ -244,13 +193,13 @@
                                                 <div class="product-item">
                                                     <img class="product-single-image" src="assets/images/products/zoom/product-4.jpg" data-zoom-image="assets/images/products/zoom/product-4-big.jpg"/>
                                                 </div>
-                                            </div>
+                                            </div> 
                                             <!-- End .product-single-carousel -->
                                             <span class="prod-full-screen">
                                                 <i class="icon-plus"></i>
                                             </span>
                                         </div>
-                                        <div class="prod-thumbnail row owl-dots" id='carousel-custom-dots'>
+                                        <!-- <div class="prod-thumbnail row owl-dots" id='carousel-custom-dots'>
                                             <div class="col-3 owl-dot">
                                                 <img src="assets/images/products/zoom/product-1.jpg"/>
                                             </div>
@@ -263,49 +212,33 @@
                                             <div class="col-3 owl-dot">
                                                 <img src="assets/images/products/zoom/product-4.jpg"/>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div><!-- End .col-lg-7 -->
 
                                     <div class="col-lg-5 col-md-6">
                                         <div class="product-single-details">
                                             <h1 class="product-title">Silver Porto Headset</h1>
 
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:60%"></span><!-- End .ratings -->
-                                                </div><!-- End .product-ratings -->
+                                            <!-- <div class="ratings-container"> -->
+                                                <!-- <div class="product-ratings"> -->
+                                                    <!-- <span class="ratings" style="width:60%"></span> --><!-- End .ratings -->
+                                                <!-- </div> --><!-- End .product-ratings -->
 
-                                                <a href="#" class="rating-link">( 6 Reviews )</a>
-                                            </div><!-- End .product-container -->
+                                                <!-- <a href="#" class="rating-link">( 6 Reviews )</a> -->
+                                            <!-- </div> --><!-- End .product-container -->
 
-                                            <div class="price-box">
+                                           <!--  <div class="price-box">
                                                 <span class="old-price">$81.00</span>
                                                 <span class="product-price">$101.00</span>
-                                            </div><!-- End .price-box -->
+                                            </div> --><!-- End .price-box -->
 
                                             <div class="product-desc">
                                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</p>
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus voluptates sed iure amet cupiditate non incidunt adipisci dolore corrupti 
+                                                    quasi, at soluta. Necessitatibus officiis iusto asperiores eligendi iure in ducimus!</p>
                                             </div><!-- End .product-desc -->
 
-                                            <div class="product-filters-container">
-                                                <div class="product-single-filter">
-                                                    <label>Colors:</label>
-                                                    <ul class="config-swatch-list">
-                                                        <li class="active">
-                                                            <a href="#" style="background-color: #6085a5;"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" style="background-color: #ab6e6e;"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" style="background-color: #b19970;"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" style="background-color: #11426b;"></a>
-                                                        </li>
-                                                    </ul>
-                                                </div><!-- End .product-single-filter -->
-                                            </div><!-- End .product-filters-container -->
+                                            
 
                                             <div class="product-action product-all-icons">
                                                 <div class="product-single-qty">
@@ -315,19 +248,15 @@
                                                 <a href="cart.html" class="paction add-cart" title="Add to Cart">
                                                     <span>Add to Cart</span>
                                                 </a>
-                                                <a href="#" class="paction add-wishlist" title="Add to Wishlist">
+                                                <!-- <a href="#" class="paction add-wishlist" title="Add to Wishlist">
                                                     <span>Add to Wishlist</span>
-                                                </a>
-                                                <a href="#" class="paction add-compare" title="Add to Compare">
+                                                </a> -->
+                                                <!-- <a href="#" class="paction add-compare" title="Add to Compare">
                                                     <span>Add to Compare</span>
-                                                </a>
+                                                </a> -->
                                             </div><!-- End .product-action -->
 
-                                            <div class="product-single-share">
-                                                <label>Share:</label>
-                                                <!-- www.addthis.com share plugin-->
-                                                <div class="addthis_inline_share_toolbox"></div>
-                                            </div><!-- End .product single-share -->
+                                            
                                         </div><!-- End .product-single-details -->
                                     </div><!-- End .col-lg-5 -->
                                 </div><!-- End .row -->
@@ -794,355 +723,78 @@
                 </div><!-- End .featured-section -->
             </main><!-- End .main -->
 
-            <footer class="footer">
-                <div class="container">
-                    <div class="footer-top">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="widget widget-about">
-                                    <h4 class="widget-title">About Us</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique augue eget enim feugiat blandit. Phasellus bibendum ex leo, at egestas lacus pellentesque in x leo, at egestas lacus.</p>
-                                </div><!-- End .widget -->
-
-                                <div class="widget">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h4 class="widget-title">Contact Info</h4>
-                                            <ul class="contact-info">
-                                                <li>
-                                                    <span class="contact-info-label">Address:</span>123 Street Name, City, England<br>Pintrest street oklar
-                                                </li>
-                                            </ul>
-                                        </div><!-- End .col-md-6 -->
-
-                                        <div class="col-md-6">
-                                            <ul class="contact-info">
-                                                <li>
-                                                    <span class="contact-info-label">Phone:</span>Toll Free <a href="tel:">(123) 456-7890</a>
-                                                </li>
-                                                <li>
-                                                    <span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">mail@example.com</a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- End .col-md-6 -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .widget -->
-                            </div><!-- End .col-lg-6 -->
-
-                            <div class="col-lg-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="widget">
-                                             <h4 class="widget-title">Featured Products</h4>
-
-                                            <div class="product product-sm">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Black Watch</a>
-                                                    </h2>
-                                                    <div class="ratings-container">
-                                                        <div class="product-ratings">
-                                                            <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                        </div><!-- End .product-ratings -->
-                                                    </div><!-- End .product-container -->
-                                                    <div class="price-box">
-                                                        <span class="product-price">$35.00</span>
-                                                    </div><!-- End .price-box -->
-                                                </div><!-- End .product-details -->
-                                            </div><!-- End .product -->
-                                            <div class="product product-sm">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Black Watch</a>
-                                                    </h2>
-                                                    <div class="ratings-container">
-                                                        <div class="product-ratings">
-                                                            <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                        </div><!-- End .product-ratings -->
-                                                    </div><!-- End .product-container -->
-                                                    <div class="price-box">
-                                                        <span class="product-price">$35.00</span>
-                                                    </div><!-- End .price-box -->
-                                                </div><!-- End .product-details -->
-                                            </div><!-- End .product -->
-
-                                            <div class="product product-sm">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/small/product-5.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Light Watch</a>
-                                                    </h2>
-                                                    <div class="ratings-container">
-                                                        <div class="product-ratings">
-                                                            <span class="ratings" style="width:50%"></span><!-- End .ratings -->
-                                                        </div><!-- End .product-ratings -->
-                                                    </div><!-- End .product-container -->
-                                                    <div class="price-box">
-                                                        <span class="product-price">$60.00</span>
-                                                    </div><!-- End .price-box -->
-                                                </div><!-- End .product-details -->
-                                            </div><!-- End .product -->
-                                        </div><!-- End .widget -->
-                                    </div><!-- End .col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="widget">
-                                             <h4 class="widget-title">Featured Products</h4>
-
-                                            <div class="product product-sm">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Black Watch</a>
-                                                    </h2>
-                                                    <div class="ratings-container">
-                                                        <div class="product-ratings">
-                                                            <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                        </div><!-- End .product-ratings -->
-                                                    </div><!-- End .product-container -->
-                                                    <div class="price-box">
-                                                        <span class="product-price">$35.00</span>
-                                                    </div><!-- End .price-box -->
-                                                </div><!-- End .product-details -->
-                                            </div><!-- End .product -->
-                                            <div class="product product-sm">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/small/product-4.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Black Watch</a>
-                                                    </h2>
-                                                    <div class="ratings-container">
-                                                        <div class="product-ratings">
-                                                            <span class="ratings" style="width:80%"></span><!-- End .ratings -->
-                                                        </div><!-- End .product-ratings -->
-                                                    </div><!-- End .product-container -->
-                                                    <div class="price-box">
-                                                        <span class="product-price">$35.00</span>
-                                                    </div><!-- End .price-box -->
-                                                </div><!-- End .product-details -->
-                                            </div><!-- End .product -->
-
-                                            <div class="product product-sm">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/small/product-5.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Light Watch</a>
-                                                    </h2>
-                                                    <div class="ratings-container">
-                                                        <div class="product-ratings">
-                                                            <span class="ratings" style="width:50%"></span><!-- End .ratings -->
-                                                        </div><!-- End .product-ratings -->
-                                                    </div><!-- End .product-container -->
-                                                    <div class="price-box">
-                                                        <span class="product-price">$60.00</span>
-                                                    </div><!-- End .price-box -->
-                                                </div><!-- End .product-details -->
-                                            </div><!-- End .product -->
-                                        </div><!-- End .widget -->
-                                    </div>
-
-
-
-
-                                </div><!-- End .row -->
-                            </div><!-- End .col-lg-6 -->
-                        </div><!-- End .row -->
-                    </div><!-- End .footer-top -->
-                </div><!-- End .container -->
-
-                <div class="footer-middle">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="widget">
-                                    <h4 class="widget-title">My Account</h4>
-
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <ul class="links">
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                            </ul>
-                                        </div><!-- End .col-sm-6 -->
-                                        <div class="col-sm-6">
-                                            <ul class="links">
-                                                <li><a href="#">Orders History</a></li>
-                                                <li><a href="#">Advanced Search</a></li>
-                                                <li><a href="#" class="login-link">Login</a></li>
-                                            </ul>
-                                        </div><!-- End .col-sm-6 -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .widget -->
-                            </div><!-- End .col-lg-4 -->
-
-                            <div class="col-lg-5">
-                                <div class="widget">
-                                   <!--  <h4 class="widget-title">Main Features</h4> -->
-
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                           <!--  <ul class="links">
-                                                <li><a href="#">Super Fast Magento Theme</a></li>
-                                                <li><a href="#">1st Fully working Ajax Theme</a></li>
-                                                <li><a href="#">20 Unique Homepage Layouts</a></li>
-                                            </ul> -->
-                                        </div><!-- End .col-sm-6 -->
-                                        <div class="col-sm-6">
-
-                                        </div><!-- End .col-sm-6 -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .widget -->
-                            </div><!-- End .col-lg-5 -->
-
-                            <div class="col-lg-3">
-                                <div class="widget widget-social">
-                                    <div class="social-icons">
-                                        <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
-                                        <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
-                                        <a href="#" class="social-icon" target="_blank"><i class="icon-linkedin"></i></a>
-                                    </div><!-- End .social-icons -->
-                                </div><!-- End .col-md-3 -->
-                            </div><!-- End .col-lg-3 -->
-                        </div><!-- End .row -->
-                    </div><!-- End .container -->
-                </div><!-- End .footer-middle -->
-
-                <div class="container">
-                    <div class="footer-bottom">
-                        <div class="row align-items-center">
-                            <div class="col-lg-4">
-                                <p class="footer-copyright">Trayton eCommerce. &copy;  2020.  All Rights Reserved</p>
-                            </div><!-- End .col-lg-4 -->
-
-                            <div class="col-lg-5">
-                                <div class="widget widget-newsletter">
-                                    <h4 class="widget-title">newsletter</h4>
-                                    <form action="#">
-                                        <input type="email" class="form-control" placeholder="Email address" required>
-
-                                        <input type="submit" class="btn" value="Subscribe">
-                                    </form>
-                                </div><!-- End .widget -->
-                            </div><!-- End .col-lg-5 -->
-
-                            <div class="col-lg-3">
-                                  </div><!-- End .col-lg-3 -->
-                        </div><!-- End .row -->
-                    </div><!-- End .footer-bottom -->
-                </div><!-- End .container -->
-            </footer><!-- End .footer -->
+            <?php include('inc/footer.php');?>
         </div><!-- End .page-wrapper -->
 
         <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
 
         <div class="mobile-menu-container">
-            <div class="mobile-menu-wrapper">
-                <span class="mobile-menu-close"><i class="icon-cancel"></i></span>
-                <nav class="mobile-nav">
-                    <ul class="mobile-menu">
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <li>
-                            <a href="category.html">Categories</a>
-                            <ul>
-                                <li><a href="category-banner-full-width.html">Full Width Banner</a></li>
+          <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-cancel"></i></span>
+            <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    <li class="active"><a href="index.php">Home</a></li>
+                    <li>
+                        <a href="category.html">Categories</a>
+                        <ul>
+                            <li><a href="category-banner-full-width.html">Full Width Banner</a></li>
 
 
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="product.php">Products</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Variations</a>
-                                    <ul>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="product.php">Products</a>
+                        <ul>
+                            <li>
+                                <a href="#">Variations</a>
+                                <ul>
 
-                                        <li><a href="my-account.html">MY ACCOUNT </a></li>
-                                        <!-- <li><a href="#">DAILY DEAL</a></li>
-                                        <li><a href="#">MY WISHLIST </a></li>
-                                        <li><a href="blog.html">BLOG</a></li>
-                                        <li><a href="contact.html">Contact</a></li> -->
-                                        <li><a href="#" class="login-link">LOG IN</a></li>
-                                    </ul>
-                                </li>
+                                    <li><a href="my-account.html">MY ACCOUNT </a></li>
+                                    <!-- <li><a href="#">DAILY DEAL</a></li>
+                                    <li><a href="#">MY WISHLIST </a></li>
+                                    
+                                    <li><a href="contact.html">Contact</a></li> -->
+                                    <li><a href="#" class="login-link">LOG IN</a></li>
+                                </ul>
+                            </li>
 
 
-                            </ul>
-                        </li>
-                        <li>
+                        </ul>
+                    </li>
+                    <li>
 
-                            <ul>
-                                <li><a href="cart.html">Shopping Cart</a></li>
-                                <li>
-                                    <a href="#">Checkout</a>
-                                    <ul>
-                                        <li><a href="checkout-shipping.html">Checkout Shipping</a></li>
-                                        <li><a href="checkout-shipping-2.html">Checkout Shipping 2</a></li>
-                                        <li><a href="checkout-review.html">Checkout Review</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="#" class="login-link">Login</a></li>
-                                <li><a href="forgot-password.html">Forgot Password</a></li>
-                            </ul>
-                        </li>
+                        <ul>
+                            <li><a href="cart.html">Shopping Cart</a></li>
+                            <li>
+                                <a href="#">Checkout</a>
+                                <ul>
+                                    <li><a href="checkout-shipping.html">Checkout Shipping</a></li>
+                                    <li><a href="checkout-shipping-2.html">Checkout Shipping 2</a></li>
+                                    <li><a href="checkout-review.html">Checkout Review</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="#" class="login-link">Login</a></li>
+                            <li><a href="forgot-password.html">Forgot Password</a></li>
+                        </ul>
+                    </li>
 
-                        <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
 
-                    </ul>
-                </nav><!-- End .mobile-nav -->
+                </ul>
+            </nav><!-- End .mobile-nav -->
 
-                <div class="social-icons">
-                    <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
-                    <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="#" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
-                </div><!-- End .social-icons -->
-            </div><!-- End .mobile-menu-wrapper -->
+            <div class="social-icons">
+                <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
+                <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
         </div>
         <!-- End .mobile-menu-container -->
 
 
-        <!-- Add Cart Modal -->
-        <div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-body add-cart-box text-center">
-                <p>You've just added this product to the<br>cart:</p>
-                <h4 id="productTitle"></h4>
-                <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
-                <div class="btn-actions">
-                    <a href="cart.html"><button class="btn-primary">Go to cart page</button></a>
-                    <a href="#"><button class="btn-primary" data-dismiss="modal">Continue</button></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
 
         <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
