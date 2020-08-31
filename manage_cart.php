@@ -11,7 +11,7 @@ if (isset($_POST["product_id"])) {
 	$statement = $conn->prepare("SELECT product_name, product_price, product_image FROM product WHERE product_id=? LIMIT 1");
 	$statement->bind_param('s', $product['product_id']);
 	$statement->execute();
-	$statement->bind_result($product_name, $product_price,$product_image);
+	$statement->bind_result($product_name, $product_price, $product_image);
 	while ($statement->fetch()) {
 		$product["product_name"] = $product_name;
 		$product["product_price"] = $product_price;
