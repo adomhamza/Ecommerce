@@ -48,7 +48,9 @@ if (isset($_POST['reg_user'])) {
 
 		$_SESSION['name'] = $name;
 		$_SESSION['success'] = "You are now logged in";
-		header('location: my-account.php');
+		$_SESSION['loggedIn'] = true;
+
+		header('location:' . $_SESSION['redirectUrl']);
 	}
 }
 
@@ -74,8 +76,10 @@ if (isset($_POST['login_user'])) {
 		if (mysqli_num_rows($results) == 1) {
 			$_SESSION['name'] = $name;
 			$_SESSION['success'] = "You are now logged in";
+			$_SESSION['loggedIn'] = true;
 
-			header('location: my-account.php');
+			header('location:' . $_SESSION['redirectUrl']);
+			
 		} else {
 			array_push($errors, "Wrong phone/password combination");
 		}

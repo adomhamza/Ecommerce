@@ -5,8 +5,9 @@ session_start();
 
 
 
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['loggedIn'])) {
     $_SESSION['msg'] = "You must log in first";
+    $_SESSION['redirectUrl'] =  $_SERVER['REQUEST_URI'];   
     header('location: login_user.php');
 }
 
@@ -68,7 +69,7 @@ if (isset($_GET['logout'])) {
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
                         <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                     </ol>
                 </div><!-- End .container -->
@@ -98,13 +99,13 @@ if (isset($_GET['logout'])) {
                                         <tr>
                                             <td class="product-col">
                                                 <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
+                                                    <a href="product.php" class="product-image">
                                                         <img src="assets/images/products/product-1.jpg" alt="product">
                                                     </a>
                                                 </figure>
                                                 <div>
                                                     <h2 class="product-title">
-                                                        <a href="product.html">Men Black Jacket</a>
+                                                        <a href="product.php">Men Black Jacket</a>
                                                     </h2>
 
                                                     <span class="product-qty">Qty: 4</span>
@@ -116,13 +117,13 @@ if (isset($_GET['logout'])) {
                                         <tr>
                                             <td class="product-col">
                                                 <figure class="product-image-container">
-                                                    <a href="product.html" class="product-image">
+                                                    <a href="product.php" class="product-image">
                                                         <img src="assets/images/products/product-2.jpg" alt="product">
                                                     </a>
                                                 </figure>
                                                 <div>
                                                     <h2 class="product-title">
-                                                        <a href="product.html">Black Hoodie</a>
+                                                        <a href="product.php">Black Hoodie</a>
                                                     </h2>
 
                                                     <span class="product-qty">Qty: 4</span>

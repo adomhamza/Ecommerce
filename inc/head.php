@@ -14,7 +14,7 @@
                 </p>
 
                 <div class=" dropdown-expanded">
-                    <a href="product.php">Log In</a>
+                    <a href="my-account.php">Log In</a>
 
                     <!-- End .header-menu -->
                 </div><!-- End .header-dropown -->

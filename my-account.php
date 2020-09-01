@@ -1,14 +1,20 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['name'])) {
+
+
+
+
+if (!isset($_SESSION['loggedIn'])) {
     $_SESSION['msg'] = "You must log in first";
+    $_SESSION['redirectUrl'] =  $_SERVER['REQUEST_URI'];   
     header('location: login_user.php');
 }
 
+
 if (isset($_GET['logout'])) {
     session_destroy();
-    unset($_SESSION['username']);
+    unset($_SESSION['name']);
     header("location: login_user.php");
 }
 
@@ -61,7 +67,7 @@ if (isset($_GET['logout'])) {
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
                         <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                     </ol>
                 </div><!-- End .container -->

@@ -7,8 +7,6 @@ session_start();
 include_once("inc/db_connect.php");
 include("inc/config.inc.php");
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -176,10 +174,10 @@ include("inc/config.inc.php");
 
                             <ul class="catAccordion">
                                 <li>
-                                    <a href="category.html">Home</a>
+                                    <a href="index.php">Home</a>
                                 </li>
                                 <li>
-                                    <a href="category.html">Fashion</a>
+                                    <a href="category.php">Fashion</a>
                                     <button class="accordion-btn collapsed" type="button" data-toggle="collapse" data-target="#accordion-ul-1" aria-expanded="false" aria-controls="accordion-ul-1"></button>
 
                                     <ul class="collapse" id="accordion-ul-1">
