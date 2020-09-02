@@ -1,5 +1,7 @@
 <?php
 session_start();
+include("inc/config.inc.php");
+
 
 
 
@@ -7,7 +9,7 @@ session_start();
 
 if (!isset($_SESSION['loggedIn'])) {
     $_SESSION['msg'] = "You must log in first";
-    $_SESSION['redirectUrl'] =  $_SERVER['REQUEST_URI'];   
+    $_SESSION['redirectUrl'] =  $_SERVER['REQUEST_URI'];
     header('location: login_user.php');
 }
 
@@ -76,199 +78,135 @@ if (isset($_GET['logout'])) {
             </nav>
 
             <div class="container">
-                <ul class="checkout-progress-bar">
-                    <li>
-                        <span>Shipping</span>
-                    </li>
-                    <li class="active">
-                        <span>Review &amp; Payments</span>
-                    </li>
-                </ul>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="order-summary">
-                            <h3>Summary</h3>
+                <?php
+                if (isset($_SESSION["products"]) && count($_SESSION["products"]) > 0) {
+                ?>
+                    <ul class="checkout-progress-bar">
+                        <li>
+                            <span>Shipping</span>
+                        </li>
+                        <li class="active">
+                            <span>Review &amp; Payments</span>
+                        </li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="cart-table-container">
 
-                            <h4>
-                                <a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">2 products in Cart</a>
-                            </h4>
-
-                            <div class="collapse" id="order-cart-section">
-                                <table class="table table-mini-cart">
+                                <table class="table table-cart" id="shopping-cart-results">
+                                    <thead>
+                                        <div class="checkout-info-box">
+                                            <h3 class="step-title">Ship To:
+                                            </h3>
+                                    </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="product-col">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/product-1.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div>
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Men Black Jacket</a>
-                                                    </h2>
+                                        <?php
+                                        $cart_box = '<ul class="cart-products-loaded">';
+                                        $total = 0;
+                                        $subtotals = 0;
+                                        foreach ($_SESSION["products"] as $product) {
+                                            $product_image = $product["product_image"];
+                                            $product_name = $product["product_name"];
+                                            $product_price = $product["product_price"];
+                                            $product_code = $product["product_id"];
+                                            $product_qty = $product["product_qty"];
+                                            //$product_color = $product["product_color"];
+                                            $subtotal = ($product_price * $product_qty);
+                                            $subtotals = ($subtotals + $subtotal);
+                                            $total = ($total + $subtotal);
+                                        ?>
 
-                                                    <span class="product-qty">Qty: 4</span>
-                                                </div>
-                                            </td>
-                                            <td class="price-col">$17.90</td>
-                                        </tr>
 
-                                        <tr>
-                                            <td class="product-col">
-                                                <figure class="product-image-container">
-                                                    <a href="product.php" class="product-image">
-                                                        <img src="assets/images/products/product-2.jpg" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <div>
-                                                    <h2 class="product-title">
-                                                        <a href="product.php">Black Hoodie</a>
-                                                    </h2>
 
-                                                    <span class="product-qty">Qty: 4</span>
-                                                </div>
-                                            </td>
-                                            <td class="price-col">$7.90</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div><!-- End #order-cart-section -->
-                        </div><!-- End .order-summary -->
 
-                        <div class="checkout-info-box">
-                            <h3 class="step-title">Ship To:
-                                <a href="#" title="Edit" class="step-title-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
-                            </h3>
 
-                            <address>
-                                Desmond Mason <br>
-                                123 Street Name, City, USA <br>
-                                Los Angeles, California 03100 <br>
-                                United States <br>
-                                (123) 456-7890
-                            </address>
-                        </div><!-- End .checkout-info-box -->
+                                        <?php }
+                                        ?>
+                                        <address>
+                                           <em style="font-size: larger;"> <?php echo $_SESSION["guest_name"] ?> </em><br>
+                                           <em style="font-size: large;"> <?php echo $_SESSION["guest_city"] ?></em> <br>
+                                           <em style="font-size: larger;"><?php echo $_SESSION["guest_region"] ?></em> <br>
+                                           <em style="font-size: medium;"><?php echo $_SESSION["guest_phone"] ?></em> <br>
 
-                        <div class="checkout-info-box">
-                            <h3 class="step-title">Shipping Method:
-                                <a href="#" title="Edit" class="step-title-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
-                            </h3>
+                                        </address>
+                                        <br>
+                                        <br>
+                            </div><!-- End .checkout-info-box -->
+                            <tfoot>
 
-                            <p>Flat Rate - Fixed</p>
-                        </div><!-- End .checkout-info-box -->
-                    </div><!-- End .col-lg-4 -->
 
-                    <div class="col-lg-8 order-lg-first">
-                        <div class="checkout-payment">
-                            <h2 class="step-title">Payment Method:</h2>
+                            </tfoot>
 
-                            <h4>Check / Money order</h4>
 
-                            <div class="form-group-custom-control">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="change-bill-address" value="1">
-                                    <label class="custom-control-label" for="change-bill-address">My billing and shipping address are the same</label>
-                                </div><!-- End .custom-checkbox -->
-                            </div><!-- End .form-group -->
-
-                            <div id="checkout-shipping-address">
-                                <address>
-                                    Desmond Mason <br>
-                                    123 Street Name, City, USA <br>
-                                    Los Angeles, California 03100 <br>
-                                    United States <br>
-                                    (123) 456-7890
-                                </address>
-                            </div><!-- End #checkout-shipping-address -->
-
-                            <div id="new-checkout-address" class="show">
-                                <form action="#">
-                                    <div class="form-group required-field">
-                                        <label>First Name </label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>Last Name </label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group">
-                                        <label>Company </label>
-                                        <input type="text" class="form-control">
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>Street Address </label>
-                                        <input type="text" class="form-control" required>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>City </label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group">
-                                        <label>State/Province</label>
-                                        <div class="select-custom">
-                                            <select class="form-control">
-                                                <option value="CA">California</option>
-                                                <option value="TX">Texas</option>
-                                            </select>
-                                        </div><!-- End .select-custom -->
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>Zip/Postal Code </label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group">
-                                        <label>Country</label>
-                                        <div class="select-custom">
-                                            <select class="form-control">
-                                                <option value="USA">United States</option>
-                                                <option value="Turkey">Turkey</option>
-                                                <option value="China">China</option>
-                                                <option value="Germany">Germany</option>
-                                            </select>
-                                        </div><!-- End .select-custom -->
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>Phone Number </label>
-                                        <div class="form-control-tooltip">
-                                            <input type="tel" class="form-control" required>
-                                            <span class="input-tooltip" data-toggle="tooltip" title="For delivery questions." data-placement="right"><i class="icon-question-circle"></i></span>
-                                        </div><!-- End .form-control-tooltip -->
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group-custom-control">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="address-save">
-                                            <label class="custom-control-label" for="address-save">Save in Address book</label>
-                                        </div><!-- End .custom-checkbox -->
-                                    </div><!-- End .form-group -->
-                                </form>
-                            </div><!-- End #new-checkout-address -->
-
-                            <div class="clearfix">
-                                <a href="#" class="btn btn-primary float-right">Place Order</a>
-                            </div><!-- End .clearfix -->
-                        </div><!-- End .checkout-payment -->
+                            </tbody>
+                            </table>
+                        </div><!-- End .cart-table-container -->
 
 
                     </div><!-- End .col-lg-8 -->
-                </div><!-- End .row -->
-            </div><!-- End .container -->
 
-            <div class="mb-6"></div><!-- margin -->
-        </main><!-- End .main -->
+                    <div class="col-lg-4">
+                        <div class="cart-summary">
+                            <h3>Summary</h3>
 
-        <br><br>
-        <?php include('inc/footer.php'); ?>
+
+
+
+
+                            <table class="table table-totals" id="shopping-cart-results">
+                                <tbody>
+                                    <tr>
+                                        <td>Subtotal</td>
+                                        <td><?php echo $currency; echo $subtotals ?></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Tax</td>
+                                        <td><?php echo $currency;?>0</td>
+                                    </tr>
+                                </tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <td>Order Total</td>
+                                        <?php
+                                        if (isset($total)) {
+                                        ?>
+                                            <td><?php echo $currency;
+                                                echo sprintf("%01.2f", $total); ?></td>
+                                        <?php } ?>
+                                    </tr>
+                                </tfoot>
+
+
+                            </table>
+                            <div class="checkout-methods">
+                                <a href="checkout-review.php" class="btn btn-block btn-sm btn-primary">Confirm & Place Order</a>
+
+                            </div><!-- End .checkout-methods -->
+
+
+
+                        </div><!-- End .cart-summary -->
+                    </div><!-- End .col-lg-4 -->
+
+            </div><!-- End .row -->
+        <?php
+                }
+
+        ?>
+
+
+    </div><!-- End .container -->
+
+
+
+
+    <div class="mb-6"></div><!-- margin -->
+    </main><!-- End .main -->
+
+    <br><br>
+    <?php include('inc/footer.php'); ?>
     </div><!-- End .page-wrapper -->
 
     <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->

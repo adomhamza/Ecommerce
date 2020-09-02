@@ -4,6 +4,11 @@ session_start();
 
 // variable declaration
 $phone = "";
+$guest_phone = "";
+$guest_name = "";
+$guest_region = "";
+$guest_city = "";
+
 $name    = "";
 $email = "";
 $errors = array();
@@ -83,5 +88,52 @@ if (isset($_POST['login_user'])) {
 		} else {
 			array_push($errors, "Wrong phone/password combination");
 		}
+	}
+}
+
+//Guest checkout
+
+
+if (isset($_POST['guest_user'])) {
+	// receive all input values from the form
+	$guest_phone = mysqli_real_escape_string($db, $_POST['guest_phone']);
+	$guest_name = mysqli_real_escape_string($db, $_POST['guest_name']);
+	$guest_email = mysqli_real_escape_string($db, $_POST['guest_email']);
+	$guest_region = mysqli_real_escape_string($db, $_POST['guest_region']);
+	$guest_city = mysqli_real_escape_string($db, $_POST['guest_city']);
+
+	// form validation: ensure that the form is correctly filled
+	if (empty($guest_phone)) {
+		array_push($errors, "Phone Numner is required");
+	}
+	if (empty($guest_name)) {
+		array_push($errors, "Name is required");
+	}
+	if (empty($guest_email)) {
+		array_push($errors, "Email is required");
+	}
+	if (empty($guest_region)) {
+		array_push($errors, "Region is required");
+	}
+
+	if (empty($guest_city)) {
+		array_push($errors, "City is required");
+	}
+
+	// register user if there are no errors in the form
+	if (count($errors) == 0) {
+		
+		$query = "INSERT INTO customer (phone, name,email, region,city) 
+					  VALUES('$guest_phone', '$guest_name', '$guest_email', '$guest_region','$guest_city')";
+		mysqli_query($db, $query);
+
+		$_SESSION['guest_name'] = $guest_name;
+		$_SESSION['guest_city'] = $guest_city;
+		$_SESSION['guest_region'] = $guest_region;
+		$_SESSION['guest_phone'] = $guest_phone;
+		$_SESSION['success'] = "You are now logged in";
+		$_SESSION['loggedIn'] = true;
+
+		header('location:' . $_SESSION['redirectUrl']);
 	}
 }

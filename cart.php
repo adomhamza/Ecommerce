@@ -159,7 +159,7 @@ include("inc/config.inc.php");
 
                         <div class="col-lg-4">
                             <div class="cart-summary">
-                                <h3>Summary</h3>
+                                 <h3>Summary</h3>
 
 
 
@@ -193,7 +193,7 @@ include("inc/config.inc.php");
 
                                 </table>
                                 <div class="checkout-methods">
-                                    <a href="checkout-review.php" class="btn btn-block btn-sm btn-primary">Go to Checkout</a>
+                                    <a href="place_order.php" class="btn btn-block btn-sm btn-primary">Confirm & Checkout</a>
 
                                 </div><!-- End .checkout-methods -->
 

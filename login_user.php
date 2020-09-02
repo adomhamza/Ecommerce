@@ -114,28 +114,23 @@
                                     <!-- <?php include('errors.php'); ?> -->
 
                                     <div class="form-group required-field">
-                                        <label>First Name </label>
-                                        <input name="fname" type="text" title="First Name" class="form-control" required>
+                                        <label>Full Name </label>
+                                        <input name="guest_name" type="text" title="First Name" class="form-control" required>
                                     </div>
                                     <!-- End .form-group -->
 
-                                    <div class="form-group required-field">
-                                        <label>Last Name </label>
-                                        <input name="lname" type="text" title="Last Name" class="form-control" required>
-                                    </div>
-
-
+                                   
                                     <div class="form-group required-field">
                                         <label>Phone Number </label>
                                         <div class="form-control-tooltip">
-                                            <input class="form-control" title="For delivery questions." name="phone" value="<?php echo $phone; ?>" type="tel" required>
+                                            <input class="form-control" title="For delivery questions." name="guest_phone"  type="tel" required>
                                             <span class="input-tooltip" data-toggle="tooltip" title="For delivery questions." data-placement="right"><i class="icon-question-circle"></i></span>
                                         </div><!-- End .form-control-tooltip -->
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group required-field">
                                         <label>Email </label>
-                                        <input class="form-control" name="email" title="Valid Email" value="<?php echo $email; ?>" type="email" required>
+                                        <input class="form-control" name="guest_email" title="Valid Email"  type="email" required>
                                     </div><!-- End .form-group -->
 
 
@@ -144,25 +139,25 @@
                                     <div class="form-group required-field">
                                         <label>Region</label>
                                         <div class="select-custom">
-                                            <select class="form-control" required name="region">
+                                            <select class="form-control" required name="guest_region">
                                                
                                                <option value="" disabled selected>Select Region</option>
-                                                <option value="Ahafo">Ahafo Region</option>
-                                                <option value="Ashanti">Ashanti Region</option>
-                                                <option value="Bono-East">Bono-East Region</option>
-                                                <option value="Brong-Ahafo">Brong Ahafo Region</option>
-                                                <option value="Central">Central Region</option>
-                                                <option value="Eastern">Eastern Region</option>
-                                                <option value="Accra">Greater Accra Region</option>
-                                                <option value="North">Northern Region</option>
-                                                <option value="North-East">North East Region</option>
-                                                <option value="Oti">Oti Region</option>
-                                                <option value="Savannah">Savannah Region</option>
-                                                <option value="Upper-East">Upper East Region</option>
-                                                <option value="Upper-West">Upper West Region</option>
-                                                <option value="Volta">Volta Region</option>
-                                                <option value="Western">Western Region</option>
-                                                <option value="Western-North">Western-North Region</option>
+                                                <option value="Ahafo Region">Ahafo Region</option>
+                                                <option value="Ashanti Region">Ashanti Region</option>
+                                                <option value="Bono-East Region">Bono-East Region</option>
+                                                <option value="Brong-Ahafo Region">Brong Ahafo Region</option>
+                                                <option value="Central Region">Central Region</option>
+                                                <option value="Eastern Region">Eastern Region</option>
+                                                <option value="Greater Accra">Greater Accra Region</option>
+                                                <option value="Northern Region">Northern Region</option>
+                                                <option value="North East Region">North East Region</option>
+                                                <option value="Oti Region">Oti Region</option>
+                                                <option value="Savannah Region">Savannah Region</option>
+                                                <option value="Upper East Region">Upper East Region</option>
+                                                <option value="Upper West Region">Upper West Region</option>
+                                                <option value="Volta Region">Volta Region</option>
+                                                <option value="Western Region">Western Region</option>
+                                                <option value="Western-North Region">Western-North Region</option>
                                             </select>
                                         </div>
                                         <!-- End .select-custom -->
@@ -170,7 +165,7 @@
                                     <!-- End .form-group -->
                                     <div class="form-group required-field">
                                         <label>City </label>
-                                        <input class="form-control" name="city" title="city" value="<?php echo $email; ?>" type="text" required>
+                                        <input class="form-control" name="guest_city" title="city" value="<?php echo $email; ?>" type="text" required>
                                     </div><!-- End .form-group -->
 
 
@@ -198,7 +193,7 @@
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <div class="checkout-steps-action">
-                                                <button type="submit" name="guest" class="btn btn-primary">Register</button>
+                                                <button type="submit" name="guest_user" class="btn btn-primary">Checkout</button>
                                             </div><!-- End .checkout-steps-action -->
                                         </div><!-- End .col-lg-8 -->
                                     </div><!-- End .row -->
@@ -224,69 +219,7 @@
 
     <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
 
-    <div class="mobile-menu-container">
-        <div class="mobile-menu-wrapper">
-            <span class="mobile-menu-close"><i class="icon-cancel"></i></span>
-            <nav class="mobile-nav">
-                <ul class="mobile-menu">
-                    <li class="active"><a href="index.php">Home</a></li>
-                    <li>
-                        <a href="category.php">Categories</a>
-                        <ul>
-                            <li><a href="category-banner-full-width.php">Full Width Banner</a></li>
-
-
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="product.php">Products</a>
-                        <ul>
-                            <li>
-                                <a href="#">Variations</a>
-                                <ul>
-
-                                    <li><a href="my-account.php">MY ACCOUNT </a></li>
-                                    <!-- <li><a href="#">DAILY DEAL</a></li>
-                                    <li><a href="#">MY WISHLIST </a></li>
-                                    
-                                    <li><a href="contact.php">Contact</a></li> -->
-                                    <li><a href="#" class="login-link">LOG IN</a></li>
-                                </ul>
-                            </li>
-
-
-                        </ul>
-                    </li>
-                    <li>
-
-                        <ul>
-                            <li><a href="cart.php">Shopping Cart</a></li>
-                            <li>
-                                <a href="#">Checkout</a>
-                                <ul>
-                                    <li><a href="checkout-shipping.php">Checkout Shipping</a></li>
-                                    <li><a href="checkout-shipping-2.php">Checkout Shipping 2</a></li>
-                                    <li><a href="checkout-review.php">Checkout Review</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.php">About</a></li>
-                            <li><a href="#" class="login-link">Login</a></li>
-                            <li><a href="forgot-password.php">Forgot Password</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="contact.php">Contact Us</a></li>
-
-                </ul>
-            </nav><!-- End .mobile-nav -->
-
-            <div class="social-icons">
-                <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
-                <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
-            </div><!-- End .social-icons -->
-        </div><!-- End .mobile-menu-wrapper -->
-    </div><!-- End .mobile-menu-container -->
+    <?php include('inc/mobile-menu-container.php'); ?><!-- End .mobile-menu-container -->
 
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>

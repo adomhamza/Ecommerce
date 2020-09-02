@@ -1,6 +1,6 @@
 <?php
 session_start();
-//session_destroy();
+session_destroy();
 
 // Create database connection
 //$db = mysqli_connect('localhost', 'root', '', 'ecomm');
@@ -169,7 +169,7 @@ include("inc/config.inc.php");
                     </div><!-- End .col-lg-9 -->
 
                     <aside class="sidebar-home col-lg-3 order-lg-first">
-                        <div class="widget widget-cats">
+                       <!--  <div class="widget widget-cats">
                             <h3 class="widget-title"><i class="icon-menu"></i>Shop By Categories</h3>
 
                             <ul class="catAccordion">
@@ -193,7 +193,7 @@ include("inc/config.inc.php");
 
 
                             </ul>
-                        </div><!-- End .widget -->
+                        </div> --><!-- End .widget -->
 
                         <div class="widget widget-features">
                             <div class="row">
