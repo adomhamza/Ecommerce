@@ -10,7 +10,7 @@
 
             <div class="header-right">
                 <p class="welcome-msg">
-                    <pre><?php print_r($_SESSION) ?></pre>
+                    <pre><?php print_r($_SESSION);?></pre>
                 </p>
 
                 <div class=" dropdown-expanded">
@@ -27,7 +27,7 @@
             <div class="header-left">
                 <a href="index.php" class="logo">
                     <!--<img src="assets/images/logo.png" alt="Porto Logo">-->
-                    <h2>Trayton Shop</h2>
+                    <h2>Trayton</h2>
                 </a>
             </div><!-- End .header-left -->
 

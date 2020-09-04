@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+include('server.php');
 
 
 
@@ -73,16 +73,17 @@ if (!isset($_SESSION['products'])) {
                     <div class="col-lg-9 order-lg-last dashboard-content">
                         <h2>Checkout</h2>
 
-                        <form action="#">
+                        <form method="post" action="place_order.php">
                             <div class="row">
+                            <?php include('errors.php'); ?>
                                 <div class="col-sm-11">
                                     <div class="row">
-
+                                    
 
                                         <div class="col-md-4">
                                             <div class="form-group required-field">
-                                                <label for="acc-mname">First Name</label>
-                                                <input type="text" class="form-control" id="acc-mname" required name="acc-mname">
+                                                <label for="acc-firstname">First Name</label>
+                                                <input type="text" class="form-control" id="acc-firstname" required name="acc-firstname">
                                             </div><!-- End .form-group -->
                                         </div><!-- End .col-md-4 -->
 
@@ -98,19 +99,19 @@ if (!isset($_SESSION['products'])) {
 
                             <div class="form-group required-field">
                                 <label for="acc-email">Email</label>
-                                <input type="email" class="form-control" id="acc-email" name="email" required>
+                                <input type="email" class="form-control" id="acc-email" name="acc-email" required>
                             </div><!-- End .form-group -->
 
                             <div class="form-group required-field">
-                                <label for="acc-email">Phone Number</label>
-                                <input type="tel" class="form-control" id="acc-email" title="For delivery questions." name="phone" required>
+                                <label for="acc-phone">Phone Number</label>
+                                <input type="tel" class="form-control" id="acc-phone" title="For delivery questions." name="acc-phone" required>
                             </div><!-- End .form-group -->
 
 
                             <div class="form-group required-field">
-                                <label>Region</label>
+                                <label for="acc-region">Region</label>
                                 <div class="select-custom">
-                                    <select class="form-control" required name="region">
+                                    <select class="form-control" required name="acc-region">
 
                                         <option value="" disabled selected>Select Region</option>
                                         <option value="Ahafo Region">Ahafo Region</option>
@@ -134,18 +135,18 @@ if (!isset($_SESSION['products'])) {
                             </div><!-- End .form-group -->
 
                             <div class="form-group required-field">
-                                <label for="acc-email">City</label>
-                                <input type="text" class="form-control" id="acc-email" name="city" required>
+                                <label for="acc-city">City</label>
+                                <input type="text" class="form-control" id="acc-city" name="acc-city" required>
                             </div><!-- End .form-group -->
 
                             <div class="form-group required-field">
                                 <label for="acc-password">PIN</label>
-                                <input type="password" class="form-control" id="acc-password" name="password" required>
+                                <input type="password" class="form-control" id="acc-password" name="acc-password" required>
                             </div><!-- End .form-group -->
 
                             <div class="form-group required-field">
-                                <label for="acc-password">Confirm PIN</label>
-                                <input type="password" class="form-control" id="acc-password" name="acc-password" required>
+                                <label for="acc-password_2">Confirm PIN</label>
+                                <input type="password" class="form-control" id="acc-password_2" name="acc-password_2" required>
                             </div><!-- End .form-group -->
 
                             <div class="mb-2"></div><!-- margin -->
@@ -170,7 +171,7 @@ if (!isset($_SESSION['products'])) {
                                 <a href="cart.php"><i class="icon-angle-double-left"></i>Back</a>
 
                                 <div class="form-footer-right">
-                                    <button type="submit" class="btn btn-primary">Place Order</button>
+                                    <button type="submit" name="acc-submit" class="btn btn-primary">Place Order</button>
                                 </div>
                             </div><!-- End .form-footer -->
                         </form>
