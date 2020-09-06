@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from themes.pixelstrap.com/multikart/back-end/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:41:28 GMT -->
 
 <head>
 
@@ -177,9 +176,9 @@
                                 </ul>
                                 <div class="tab-content" id="top-tabContent">
                                     <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
-                                        <form class="form-horizontal auth-form" method="post" action="login2.php">
+                                        <form  method="post" action="login.php">
                                             <div class="form-group">
-                                                <input required="" type="text" name="username" class="form-control" placeholder="Username" id="exampleInputEmail1">
+                                                <input required="" type="text" name="username" class="form-control" placeholder="Phone">
                                             </div>
                                             <div class="form-group">
                                                 <input required="" type="password" name="password" class="form-control" placeholder="Password">
@@ -206,9 +205,9 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
-                                        <form class="form-horizontal auth-form" method="post" action="login2.php">
+                                        <form class="form-horizontal auth-form" method="post" action="login.php">
                                             <div class="form-group">
-                                                <input required="" name="username" value="<?php echo $username; ?>" type="text" class="form-control" placeholder="Username" id="exampleInputEmail12">
+                                                <input required="" name="username" value="<?php echo $username; ?>" type="text" class="form-control" placeholder="Phone Number" id="exampleInputEmail12">
                                             </div>
                                             <div class="form-group">
                                                 <input required="" name="email" value="<?php echo $email; ?>" type="email" class="form-control" placeholder="Email" id="exampleInputEmail12">

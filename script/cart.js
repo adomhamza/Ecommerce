@@ -33,7 +33,7 @@ $(document).ready(function () {
       $("#cart-container").html(data.products);
       // console.log(data.products);
       //alert($("#cart-container").html());
-      button_content.html('<i class="icon-bag"></i>Item Added to Cart');
+      button_content.html('<i class="fa fa-check" aria-hidden="true"></i>Item Added to Cart');
       button_content.attr('disabled','disabled');
     });
     e.preventDefault();

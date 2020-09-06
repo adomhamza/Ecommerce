@@ -189,18 +189,18 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <ul class="links">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
+                                            <li><a href="about.php">About Us</a></li>
+                                            <li><a href="contact.php">Contact Us</a></li>
+                                            <li><a href="my-account.php">My Account</a></li>
                                         </ul>
                                     </div><!-- End .col-sm-6 -->
-                                    <div class="col-sm-6">
+                                   <!--  <div class="col-sm-6">
                                         <ul class="links">
                                             <li><a href="#">Orders History</a></li>
                                             <li><a href="#">Advanced Search</a></li>
                                             <li><a href="#" class="login-link">Login</a></li>
                                         </ul>
-                                    </div><!-- End .col-sm-6 -->
+                                    </div> --><!-- End .col-sm-6 -->
                                 </div><!-- End .row -->
                             </div><!-- End .widget -->
                         </div><!-- End .col-lg-4 -->
@@ -240,20 +240,21 @@
             <div class="container">
                 <div class="footer-bottom">
                     <div class="row align-items-center">
-                        <div class="col-lg-4">
-                            <p class="footer-copyright">Trayton eCommerce. &copy; 2020. All Rights Reserved</p>
-                        </div><!-- End .col-lg-4 -->
-
-                        <div class="col-lg-5">
+                    <div class="col-lg-5">
                             <div class="widget widget-newsletter">
-                                <h4 class="widget-title">newsletter</h4>
+                                <!-- <h4 class="widget-title">newsletter</h4>
                                 <form action="#">
                                     <input type="email" class="form-control" placeholder="Email address" required>
 
                                     <input type="submit" class="btn" value="Subscribe">
-                                </form>
+                                </form> -->
                             </div><!-- End .widget -->
                         </div><!-- End .col-lg-5 -->
+                        <div class="col-lg-4">
+                            <p class="footer-copyright">Trayton eCommerce. &copy; 2020. All Rights Reserved</p>
+                        </div><!-- End .col-lg-4 -->
+
+                        
 
                         <div class="col-lg-3">
                         </div><!-- End .col-lg-3 -->
