@@ -11,7 +11,7 @@ include("inc/config.inc.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Ecommerce Store</title>
+    <title>✨Checkout -Trayton Store✨</title>
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Ecommerce Store">
@@ -55,101 +55,7 @@ include("inc/config.inc.php");
 
 <body>
     <div class="page-wrapper">
-        <header class="header">
-            <div class="header-top">
-                <div class="container">
-                    <div class="header-left header-dropdowns">
-
-
-
-
-                    </div><!-- End .header-left -->
-
-                    <div class="header-right">
-                        <p class="welcome-msg">
-                            <pre><?php print_r($_SESSION) ?></pre>
-                        </p>
-
-                        <div class=" dropdown-expanded">
-                            <a href="product.php">Log In</a>
-
-                            <!-- End .header-menu -->
-                        </div><!-- End .header-dropown -->
-                    </div><!-- End .header-right -->
-                </div><!-- End .container -->
-            </div><!-- End .header-top -->
-
-            <div class="header-middle">
-                <div class="container">
-                    <div class="header-left">
-                        <a href="index.php" class="logo">
-                            <!--<img src="assets/images/logo.png" alt="Porto Logo">-->
-                            <h2>Trayton Shop</h2>
-                        </a>
-                    </div><!-- End .header-left -->
-
-                    <div class="header-center">
-                        <div class="header-search">
-                            <a href="#" class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
-                            <form action="#" method="get">
-                                <div class="header-search-wrapper">
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required>
-                                    <div class="select-custom">
-                                        <select id="cat" name="cat">
-                                            <option value="">All Categories</option>
-                                            <option value="4">Fashion</option>
-                                            <option value="12">- Women</option>
-
-
-
-                                        </select>
-                                    </div><!-- End .select-custom -->
-                                    <button class="btn" type="submit"><i class="icon-magnifier"></i></button>
-                                </div><!-- End .header-search-wrapper -->
-                            </form>
-                        </div><!-- End .header-search -->
-                    </div><!-- End .headeer-center -->
-
-                    <div class="header-right">
-                        <button class="mobile-menu-toggler" type="button">
-                            <i class="icon-menu"></i>
-                        </button>
-                        <div class="header-contact">
-                            <span>Call us now</span>
-                            <a href="tel:#">(123) 456 7890</a>
-                        </div><!-- End .header-contact -->
-
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button">
-                                <span class="cart-count" id="cart-container"><?php
-                                                                                if (isset($_SESSION["products"])) {
-                                                                                    echo count($_SESSION["products"]);
-                                                                                } else {
-                                                                                    echo 0;
-                                                                                }
-                                                                                ?></span>
-                            </a>
-
-                        </div><!-- End .dropdown -->
-                    </div><!-- End .header-right -->
-                </div><!-- End .container -->
-            </div><!-- End .header-middle -->
-
-            <div class="header-bottom sticky-header">
-                <div class="container">
-                    <nav class="main-nav">
-                        <ul class="menu sf-arrows">
-                            <li class="active"><a href="index.php">Home</a></li>
-
-
-
-                            <!--  <li class="float-right"><a href="https://1.envato.market/DdLk5" target="_blank">Buy Porto!</a></li>
-                            <li class="float-right"><a href="#">Special Offer!</a></li> -->
-                        </ul>
-                    </nav>
-                </div><!-- End .header-bottom -->
-            </div><!-- End .header-bottom -->
-        </header><!-- End .header -->
+        <?php include('inc/head.php'); ?>
 
         <main class="main">
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -253,7 +159,7 @@ include("inc/config.inc.php");
 
                         <div class="col-lg-4">
                             <div class="cart-summary">
-                                <h3>Summary</h3>
+                                 <h3>Summary</h3>
 
 
 
@@ -278,7 +184,8 @@ include("inc/config.inc.php");
                                             <?php
                                             if (isset($total)) {
                                             ?>
-                                                <td><?php echo $currency; echo sprintf("%01.2f",$total); ?></td>
+                                                <td><?php echo $currency;
+                                                    echo sprintf("%01.2f", $total); ?></td>
                                             <?php } ?>
                                         </tr>
                                     </tfoot>
@@ -286,7 +193,7 @@ include("inc/config.inc.php");
 
                                 </table>
                                 <div class="checkout-methods">
-                                    <a href="checkout-shipping.php" class="btn btn-block btn-sm btn-primary">Go to Checkout</a>
+                                    <a href="place_order.php" class="btn btn-block btn-sm btn-primary">Confirm & Checkout</a>
 
                                 </div><!-- End .checkout-methods -->
 
@@ -298,9 +205,9 @@ include("inc/config.inc.php");
                     </div><!-- End .row -->
                 <?php
                 } else {
-                    
+
                 ?>
-                     <strong><?php echo "Your cart is empty"; ?></strong>
+                    <strong><?php echo "Your cart is empty"; ?></strong>
                     <tfoot>
                         <br>
                         <br>
@@ -322,74 +229,12 @@ include("inc/config.inc.php");
             <div class="mb-6"></div><!-- margin -->
         </main><!-- End .main -->
 
-        <?php include('inc/footer.php');?>
+        <?php include('inc/footer.php'); ?>
     </div><!-- End .page-wrapper -->
 
-    
-    <div class="mobile-menu-container">
-    <div class="mobile-menu-wrapper">
-            <span class="mobile-menu-close"><i class="icon-cancel"></i></span>
-            <nav class="mobile-nav">
-                <ul class="mobile-menu">
-                    <li class="active"><a href="index.php">Home</a></li>
-                    <li>
-                        <a href="category.html">Categories</a>
-                        <ul>
-                            <li><a href="category-banner-full-width.html">Full Width Banner</a></li>
 
+    <?php include('inc/mobile-menu-container.php') ?>
 
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="product.php">Products</a>
-                        <ul>
-                            <li>
-                                <a href="#">Variations</a>
-                                <ul>
-
-                                    <li><a href="my-account.html">MY ACCOUNT </a></li>
-                                    <!-- <li><a href="#">DAILY DEAL</a></li>
-                                    <li><a href="#">MY WISHLIST </a></li>
-                                    
-                                    <li><a href="contact.html">Contact</a></li> -->
-                                    <li><a href="#" class="login-link">LOG IN</a></li>
-                                </ul>
-                            </li>
-
-
-                        </ul>
-                    </li>
-                    <li>
-
-                        <ul>
-                            <li><a href="cart.html">Shopping Cart</a></li>
-                            <li>
-                                <a href="#">Checkout</a>
-                                <ul>
-                                    <li><a href="checkout-shipping.html">Checkout Shipping</a></li>
-                                    <li><a href="checkout-shipping-2.html">Checkout Shipping 2</a></li>
-                                    <li><a href="checkout-review.html">Checkout Review</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#" class="login-link">Login</a></li>
-                            <li><a href="forgot-password.html">Forgot Password</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="contact.html">Contact Us</a></li>
-
-                </ul>
-            </nav><!-- End .mobile-nav -->
-
-            <div class="social-icons">
-                <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
-                <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
-            </div><!-- End .social-icons -->
-        </div><!-- End .mobile-menu-wrapper -->
-    </div><!-- End .mobile-menu-container -->
-    
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 

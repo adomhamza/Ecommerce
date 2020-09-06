@@ -2,10 +2,12 @@
 
 include('functions.php');	
 
-if (!isLoggedIn()) {
+if (!isAdmin()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
+
+
 /* session_start();
 
 
@@ -134,7 +136,7 @@ if (isset($_GET['logout'])) {
                     <div><img class="img-60 rounded-circle lazyloaded blur-up" src="../assets/images/dashboard/man.png"
                               alt="#">
                     </div>
-                    <h6 class="mt-3 f-14"><?php echo $_SESSION['userlogin']['username']; ?></h6>
+                    <h6 class="mt-3 f-14"><?php echo $_SESSION['user']['user_type']; ?></h6>
                     <!-- <p>General Manager</p> -->
                 </div>
                 <ul class="sidebar-menu">
