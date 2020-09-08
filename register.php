@@ -55,124 +55,151 @@
             </nav>
 
             <div class="container">
-                <!-- <ul class="checkout-progress-bar">
-                    <li class="active">
-                        <span>Shipping</span>
-                    </li> -->
-                <!--  <li>
-                        <span>Review &amp; Payments</span>
-                    </li> -->
-                <!--  </ul> -->
                 <div class="row">
+                    <div class="col-lg-9 order-lg-last dashboard-content">
+                        <h2 class="step-title">Register</h2>
 
-                    <div class="col-lg-4">
-
-                        <ul class="checkout-steps">
-                            <li>
-                                <h2 class="step-title">Register</h2>
-                                <form method="post" action="register.php">
-                                    <?php include('errors.php'); ?>
-
-
-                                    <div class="form-group required-field">
-                                        <label>Phone Number </label>
-                                        <div class="form-control-tooltip">
-                                            <input class="form-control" title="For delivery questions." name="phone" value="<?php echo $phone; ?>" type="tel" required>
-                                            <span class="input-tooltip" data-toggle="tooltip" title="For delivery questions." data-placement="right"><i class="icon-question-circle"></i></span>
-                                        </div><!-- End .form-control-tooltip -->
-                                    </div><!-- End .form-group -->
-
-                                    <!--  <div class="form-group required-field">
-                                        <label>First Name </label>
-                                        <input type="text" class="form-control" required>
-                                    </div> -->
-                                    <!-- End .form-group -->
-
-                                    <!--  <div class="form-group required-field">
-                                        <label>Last Name </label>
-                                        <input type="text" class="form-control" required>
-                                    </div> -->
-                                    <!-- End .form-group -->
-
-                                    <!-- <div class="form-group">
-                                        <label>Region</label>
-                                        <div class="select-custom">
-                                            <select class="form-control">
-                                                <option selected req disabled required hidden>Select Region</option>
-                                                <option>Ahafo Region</option>
-                                                <option>Ashanti Region</option>
-                                                <option>Bono-East Region</option>
-                                                <option>Brong Ahafo Region</option>
-                                                <option>Central Region</option>
-                                                <option>Eastern Region</option>
-                                                <option>Greater Accra Region</option>
-                                                <option>Northern Region</option>
-                                                <option>North East Region</option>
-                                                <option>Oti Region</option>
-                                                <option>Savannah Region</option>
-                                                <option>Upper East Region</option>
-                                                <option>Upper West Region</option>
-                                                <option>Volta Region</option>
-                                                <option>Western Region</option>
-                                                <option>Western-North Region</option>
-                                            </select>
-                                        </div> -->
-                                    <!-- End .select-custom -->
-                                    <!-- </div> -->
-                                    <!-- End .form-group -->
-
-
-                                    <div class="form-group required-field">
-                                        <label>Name </label>
-                                        <input class="form-control" name="name" value="<?php echo $name; ?>" type="text" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>Email </label>
-                                        <input class="form-control" name="email" value="<?php echo $email; ?>" type="email" required>
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group required-field">
-                                        <label>Password </label>
-                                        <input required="" name="password_1" type="password" class="form-control">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Confirm Password </label>
-                                        <input required="" name="password_2" type="password" class="form-control">
-                                    </div>
-
-                                    <div class="form-terms">
-                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                            <input required type="checkbox" class="custom-control-input" id="customControlAutosizing1">
-                                            <label class="custom-control-label" for="customControlAutosizing1">
-                                                <p style="margin-left: 10px;"> I agree to all statements in the <a href="#" class="pull-right">Terms &amp; Conditions</a></p>
-                                            </label>
-                                        </div>
-                                    </div>
-
+                        <form form method="post" action="register.php">
+                            <?php include('errors.php'); ?>
+                            <div class="row">
+                                <div class="col-sm-11">
                                     <div class="row">
-                                        <div class="col-lg-8">
-                                            <div class="checkout-steps-action">
-                                                <button type="submit" name="reg_user" class="btn btn-primary">Register</button>
-                                            </div><!-- End .checkout-steps-action -->
-                                        </div><!-- End .col-lg-8 -->
+                                        <div class="col-md-4">
+                                            <div class="form-group required-field">
+                                                <label for="acc-name">First Name</label>
+                                                <input type="text" class="form-control" id="acc-name" name="acc-name" required>
+                                            </div><!-- End .form-group -->
+                                        </div><!-- End .col-md-4 -->
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <!-- <label for="acc-mname">First Name</label>
+                                                <input type="text" class="form-control" id="acc-mname" name="acc-mname"> -->
+                                            </div><!-- End .form-group -->
+                                        </div><!-- End .col-md-4 -->
+
+                                        <div class="col-md-4">
+                                            <div class="form-group required-field">
+                                                <label for="acc-lastname">Last Name</label>
+                                                <input type="text" class="form-control" id="acc-lastname" name="acc-lastname" required>
+                                            </div><!-- End .form-group -->
+                                        </div><!-- End .col-md-4 -->
                                     </div><!-- End .row -->
-                                </form>
-                            </li>
-                        </ul>
-                    </div><!-- End .col-lg-4 -->
+                                </div><!-- End .col-sm-11 -->
+                            </div><!-- End .row -->
+
+                            <div class="form-group required-field">
+                                <label for="acc-phone">Phone Number</label>
+                                <input type="tel" class="form-control" id="acc-phone" title="For delivery questions." name="acc-phone" required>
+                            </div><!-- End .form-group -->
+
+
+                            <div class="form-group required-field">
+                                <label for="acc-email">Email</label>
+                                <input type="email" class="form-control" id="acc-email" name="acc-email" required>
+                            </div><!-- End .form-group -->
+
+
+                            <div class="form-group required-field">
+                                <label for="acc-region">Region</label>
+                                <div class="select-custom">
+                                    <select class="form-control" required name="acc-region">
+
+                                        <option value="" disabled selected>Select Region</option>
+                                        <option value="Ahafo Region">Ahafo Region</option>
+                                        <option value="Ashanti Region">Ashanti Region</option>
+                                        <option value="Bono-East Region">Bono-East Region</option>
+                                        <option value="Brong-Ahafo Region">Brong Ahafo Region</option>
+                                        <option value="Central Region">Central Region</option>
+                                        <option value="Eastern Region">Eastern Region</option>
+                                        <option value="Greater Accra">Greater Accra Region</option>
+                                        <option value="Northern Region">Northern Region</option>
+                                        <option value="North East Region">North East Region</option>
+                                        <option value="Oti Region">Oti Region</option>
+                                        <option value="Savannah Region">Savannah Region</option>
+                                        <option value="Upper East Region">Upper East Region</option>
+                                        <option value="Upper West Region">Upper West Region</option>
+                                        <option value="Volta Region">Volta Region</option>
+                                        <option value="Western Region">Western Region</option>
+                                        <option value="Western-North Region">Western-North Region</option>
+                                    </select>
+                                </div>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label for="acc-city">City</label>
+                                <input type="text" class="form-control" id="acc-city" name="acc-city" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label for="acc-password">PIN</label>
+                                <input type="password" class="form-control" id="acc-password" name="acc-password" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label for="acc-password_2">Confirm PIN</label>
+                                <input type="password" class="form-control" id="acc-password_2" name="acc-password_2" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="mb-2"></div><!-- margin -->
+
+
+
+
+
+                            <div class="required text-right">* Required Field</div>
+
+                            <div class="form-terms">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input required type="checkbox" class="custom-control-input" id="customControlAutosizing1">
+                                    <label class="custom-control-label" for="customControlAutosizing1">
+                                        <p style="margin-left: 10px;"> I agree to all statements in the <a href="#" class="pull-right">Terms &amp; Conditions</a></p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-footer">
+                                <a href="#"><i class="icon-angle-double-left"></i>Back</a>
+
+                                <div class="form-footer-right">
+                                    <button type="submit" name="reg_user" class="btn btn-primary">Register</button>
+                                </div>
+                            </div><!-- End .form-footer -->
+                        </form>
+                    </div><!-- End .col-lg-9 -->
+
+                    <aside class="sidebar col-lg-1">
+                        <!-- <div class="widget widget-dashboard"> -->
+                        <!-- <h3 class="widget-title">My Account</h3> -->
+
+                        <!--  <ul class="list">
+                                <li class="active"><a href="#">Account Dashboard</a></li>
+                                <li><a href="#">Account Information</a></li>
+                                <li><a href="#">Address Book</a></li>
+                                <li><a href="#">My Orders</a></li>
+                                <li><a href="#">Billing Agreements</a></li>
+                                <li><a href="#">Recurring Profiles</a></li>
+                                <li><a href="#">My Product Reviews</a></li>
+                                <li><a href="#">My Tags</a></li>
+                                <li><a href="#">My Wishlist</a></li>
+                                <li><a href="#">My Applications</a></li>
+                                <li><a href="#">Newsletter Subscriptions</a></li>
+                                <li><a href="#">My Downloadable Products</a></li>
+                            </ul> -->
+                        <!-- </div> -->
+                        <!-- End .widget -->
+                    </aside><!-- End .col-lg-3 -->
                 </div><!-- End .row -->
             </div><!-- End .container -->
-            <div class="mb-6"></div><!-- margin -->
+
+            <div class="mb-5"></div><!-- margin -->
         </main><!-- End .main -->
 
-        <?php include('inc/footer.php'); ?>
+        <?php include('inc/footer.php') ?>
     </div><!-- End .page-wrapper -->
 
 
 
-    <?php include('inc/mobile-menu-container.php'); ?>
+    <?php include('inc/mobile-menu-container.php') ?>
 
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>

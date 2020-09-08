@@ -56,13 +56,13 @@
 			if (isset($_POST['user_type'])) {
 				$user_type = e($_POST['user_type']);
 				$query = "INSERT INTO admin_table (phone, email, user_type, passwords) 
-						  VALUES('$username', '$email', '$user_type', '$password')";
+						  VALUES('$username', '$email', '$user_type', '$password_1')";
 				mysqli_query($db, $query);
 				$_SESSION['success']  = "New user successfully created!!";
-				header('location: admin.php');
+				header('location: xadmin.php');
 			}else{
 				$query = "INSERT INTO admin_table (phone, email, user_type, passwords) 
-						  VALUES('$username', '$email', 'user', '$password')";
+						  VALUES('$username', '$email', 'user', '$password_1')";
 				mysqli_query($db, $query);
 
 				// get id of the created user
@@ -105,7 +105,7 @@
 
 		// attempt login if no errors on form
 		if (count($errors) == 0) {
-			$password = md5($password);
+			//$password = md5($password);
 
 			$query = "SELECT * FROM admin_table WHERE phone='$username' AND passwords='$password' LIMIT 1";
 			$results = mysqli_query($db, $query);

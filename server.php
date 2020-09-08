@@ -47,7 +47,7 @@ if (isset($_POST['reg_user'])) {
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		$password = md5($password_1); //encrypt the password before saving in the database
-		$query = "INSERT INTO customer (phone, name,email, password) 
+		$query = "INSERT INTO customer (phone, fname,lname,email, pin) 
 					  VALUES('$phone', '$name', '$email', '$password')";
 		mysqli_query($db, $query);
 
@@ -75,7 +75,7 @@ if (isset($_POST['login_user'])) {
 
 	if (count($errors) == 0) {
 		$password = md5($password);
-		$query = "SELECT * FROM customer WHERE phone='$phone' AND password='$password'";
+		$query = "SELECT * FROM customer WHERE phone='$phone' AND pin='$password'";
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) {

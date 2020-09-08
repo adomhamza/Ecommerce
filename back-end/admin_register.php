@@ -251,7 +251,6 @@
 
 </body>
 
-<!-- Mirrored from themes.pixelstrap.com/multikart/back-end/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:41:29 GMT -->
 
 </html>
 <?php
