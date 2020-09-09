@@ -10,11 +10,8 @@ if (!isAdmin()) {
 }
 
 
-/* session_start();
+/*
 
-if (!isset($_SESSION['userlogin'])) {
-    header('Location: login.php');
-}
 
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -106,10 +103,7 @@ if (isset($_GET['logout'])) {
                                         class="main-circle"></span></div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-                            <!--  <li><a href="#"><i data-feather="user"></i>Edit Profile</a></li>
-                             <li><a href="#"><i data-feather="mail"></i>Inbox</a></li>
-                             <li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
-                             <li><a href="#"><i data-feather="settings"></i>Settings</a></li> -->
+                           
                             <li><a href="admin.php?logout=true"><i data-feather="log-out"></i>Logout</a></li>
                         </ul>
                     </li>

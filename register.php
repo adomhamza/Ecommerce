@@ -67,14 +67,13 @@
                                         <div class="col-md-4">
                                             <div class="form-group required-field">
                                                 <label for="acc-name">First Name</label>
-                                                <input type="text" class="form-control" id="acc-name" name="acc-name" required>
+                                                <input type="text" class="form-control" id="acc-name" name="acc-firstname" required>
                                             </div><!-- End .form-group -->
                                         </div><!-- End .col-md-4 -->
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <!-- <label for="acc-mname">First Name</label>
-                                                <input type="text" class="form-control" id="acc-mname" name="acc-mname"> -->
+                                                
                                             </div><!-- End .form-group -->
                                         </div><!-- End .col-md-4 -->
 
@@ -158,35 +157,17 @@
                                 </div>
                             </div>
                             <div class="form-footer">
-                                <a href="#"><i class="icon-angle-double-left"></i>Back</a>
+                                <a href="login.php"><i class="icon-angle-double-left"></i>Back</a>
 
                                 <div class="form-footer-right">
-                                    <button type="submit" name="reg_user" class="btn btn-primary">Register</button>
+                                    <button type="submit" name="register_user" class="btn btn-primary">Register</button>
                                 </div>
                             </div><!-- End .form-footer -->
                         </form>
                     </div><!-- End .col-lg-9 -->
 
                     <aside class="sidebar col-lg-1">
-                        <!-- <div class="widget widget-dashboard"> -->
-                        <!-- <h3 class="widget-title">My Account</h3> -->
-
-                        <!--  <ul class="list">
-                                <li class="active"><a href="#">Account Dashboard</a></li>
-                                <li><a href="#">Account Information</a></li>
-                                <li><a href="#">Address Book</a></li>
-                                <li><a href="#">My Orders</a></li>
-                                <li><a href="#">Billing Agreements</a></li>
-                                <li><a href="#">Recurring Profiles</a></li>
-                                <li><a href="#">My Product Reviews</a></li>
-                                <li><a href="#">My Tags</a></li>
-                                <li><a href="#">My Wishlist</a></li>
-                                <li><a href="#">My Applications</a></li>
-                                <li><a href="#">Newsletter Subscriptions</a></li>
-                                <li><a href="#">My Downloadable Products</a></li>
-                            </ul> -->
-                        <!-- </div> -->
-                        <!-- End .widget -->
+                        
                     </aside><!-- End .col-lg-3 -->
                 </div><!-- End .row -->
             </div><!-- End .container -->
