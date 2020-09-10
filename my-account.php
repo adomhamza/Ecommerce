@@ -1,5 +1,6 @@
 <?php
 session_start();
+//session_destroy();
 
 
 
@@ -8,14 +9,14 @@ session_start();
 if (!isset($_SESSION['loggedIn'])) {
     $_SESSION['msg'] = "You must log in first";
     $_SESSION['redirectUrl'] =  $_SERVER['REQUEST_URI'];   
-    header('location: login_user.php');
+    header('location: login.php');
 }
 
 
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['name']);
-    header("location: login_user.php");
+    header("location: login.php");
 }
 
 ?>
@@ -169,7 +170,7 @@ if (isset($_GET['logout'])) {
                                 <li><a href="#">My Wishlist</a></li>
                                 <li><a href="#">My Applications</a></li>
                                 <li><a href="#">Newsletter Subscriptions</a></li>
-                                <li><a href="#">My Downloadable Products</a></li>
+                                <li><a href="my-account.php?logout=true">Log Out</a></li>
                             </ul>
                         </div><!-- End .widget -->
                     </aside><!-- End .col-lg-3 -->

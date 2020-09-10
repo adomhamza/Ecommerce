@@ -47,7 +47,7 @@ if (isset($_POST['reg_user'])) {
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		$password = md5($password_1); //encrypt the password before saving in the database
-		$query = "INSERT INTO customer (phone, name,email, password) 
+		$query = "INSERT INTO customer (phone, fname,lname,email, pin) 
 					  VALUES('$phone', '$name', '$email', '$password')";
 		mysqli_query($db, $query);
 
@@ -75,7 +75,7 @@ if (isset($_POST['login_user'])) {
 
 	if (count($errors) == 0) {
 		$password = md5($password);
-		$query = "SELECT * FROM customer WHERE phone='$phone' AND password='$password'";
+		$query = "SELECT * FROM customer WHERE phone='$phone' AND pin='$password'";
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) {
@@ -83,7 +83,7 @@ if (isset($_POST['login_user'])) {
 			$_SESSION['success'] = "You are now logged in";
 			$_SESSION['loggedIn'] = true;
 
-			header('location:' . $_SESSION['redirectUrl']);
+			header('location: my-account.php');
 		} else {
 			array_push($errors, "Wrong phone/password combination");
 		}
@@ -175,5 +175,48 @@ if (isset($_POST['acc-submit'])) {
 					  VALUES('$acc_prod', '$acc_price', '$acc_qty',$acc_phone)";
 			mysqli_query($db, $query);
 		}
+	}
+}
+
+
+if (isset($_POST['register_user'])) {
+	// receive all input values from the form
+	$acc_firstname = mysqli_real_escape_string($db, $_POST['acc-firstname']);
+	$acc_lastname = mysqli_real_escape_string($db, $_POST['acc-lastname']);
+	$acc_email = mysqli_real_escape_string($db, $_POST['acc-email']);
+	$acc_region = mysqli_real_escape_string($db, $_POST['acc-region']);
+	$acc_city = mysqli_real_escape_string($db, $_POST['acc-city']);
+	$acc_phone = mysqli_real_escape_string($db, $_POST['acc-phone']);
+	$acc_password = mysqli_real_escape_string($db, $_POST['acc-password']);
+	$acc_password_2 = mysqli_real_escape_string($db, $_POST['acc-password_2']);
+
+
+	
+	if ($acc_password != $acc_password_2) {
+		array_push($errors, "The two passwords do not match");
+	}
+
+	// register user if there are no errors in the form
+	if (count($errors) == 0) {
+
+		$password = md5($acc_password); //encrypt the password before saving in the database
+		$query1 = "INSERT INTO customer (phone, fname, lname, email, region, city, pin) 
+					  VALUES('$acc_phone', '$acc_firstname', '$acc_lastname', '$acc_email'
+					  , '$acc_region', '$acc_city', '$password')";
+		mysqli_query($db, $query1);
+
+
+		$_SESSION['loggedIn'] = true;
+
+		header('location:' . $_SESSION['redirectUrl']);
+
+		/* $_SESSION['guest_name'] = $guest_name;
+		$_SESSION['guest_city'] = $guest_city;
+		$_SESSION['guest_region'] = $guest_region;
+		$_SESSION['guest_phone'] = $guest_phone;
+		$_SESSION['success'] = "You are now logged in";
+		$_SESSION['loggedIn'] = true;
+
+		header('location:' . $_SESSION['redirectUrl']); */
 	}
 }

@@ -55,14 +55,7 @@
             </nav>
 
             <div class="container">
-                <!-- <ul class="checkout-progress-bar">
-                    <li class="active">
-                        <span>Shipping</span>
-                    </li> -->
-                <!--  <li>
-                        <span>Review &amp; Payments</span>
-                    </li> -->
-                <!--  </ul> -->
+               
                 <div class="row">
                     <div class="col-lg-8">
                         <ul class="checkout-steps">
@@ -171,15 +164,7 @@
 
 
 
-                                    <!-- <div class="form-group required-field">
-                                        <label>Password </label>
-                                        <input required="" name="password_1" type="password" class="form-control">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Confirm Password </label>
-                                        <input required="" name="password_2" type="password" class="form-control">
-                                    </div> -->
+                                   
 
                                     <div class="form-terms">
                                         <div class="custom-control custom-checkbox mr-sm-2">

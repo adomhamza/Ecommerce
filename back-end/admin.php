@@ -1,6 +1,8 @@
 <?php
 
-include('functions.php');	
+include('functions.php');
+
+
 
 if (!isAdmin()) {
     $_SESSION['msg'] = "You must log in first";
@@ -8,12 +10,8 @@ if (!isAdmin()) {
 }
 
 
-/* session_start();
+/*
 
-
-if (!isset($_SESSION['userlogin'])) {
-    header('Location: login.php');
-}
 
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -34,7 +32,7 @@ if (isset($_GET['logout'])) {
     <meta name="description"
           content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords"
-          content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
+          content="admin template,  admin , dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
@@ -76,14 +74,12 @@ if (isset($_GET['logout'])) {
     <div class="page-main-header">
         <div class="main-header-right row">
             <div class="main-header-left d-lg-none">
-                <div class="logo-wrapper"><a href="admin.php"><img class="blur-up lazyloaded"
-                                                                   src="../assets/images/dashboard/multikart-logo.png"
-                                                                   alt=""></a></div>
+                <div class=""><a href="admin.php"><p>hhhhhhh</p></a></div>
             </div>
             <div class="mobile-sidebar">
-                <div class="media-body text-right switch-sm">
+                 <div class="media-body text-right switch-sm">
                     <label class="switch"><a href="#"><i id="sidebar-toggle" data-feather="align-left"></i></a></label>
-                </div>
+                </div> 
             </div>
             <div class="nav-right col">
                 <ul class="nav-menus">
@@ -107,10 +103,7 @@ if (isset($_GET['logout'])) {
                                         class="main-circle"></span></div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-                            <!--  <li><a href="#"><i data-feather="user"></i>Edit Profile</a></li>
-                             <li><a href="#"><i data-feather="mail"></i>Inbox</a></li>
-                             <li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
-                             <li><a href="#"><i data-feather="settings"></i>Settings</a></li> -->
+                           
                             <li><a href="admin.php?logout=true"><i data-feather="log-out"></i>Logout</a></li>
                         </ul>
                     </li>
@@ -228,58 +221,53 @@ if (isset($_GET['logout'])) {
                         <div class="card">
                             <div class="card-header">
                                 <h5>Latest Orders</h5>
-
+                                
+                               
                             </div>
-                            <div class="card-body">
+                            <div class="card-body order-datatable">
                                 <div class="user-status table-responsive latest-order-table">
+                                
                                     <table class="table table-bordernone">
                                         <thead>
-                                        <tr>
-                                            <th scope="col">Order ID</th>
-                                            <th scope="col">Customer Name</th>
-                                            <th scope="col">Phone Number</th>
-                                            <th scope="col">Order Total</th>
-                                           
-                                           
-                                        </tr>
+                                            <tr>
+                                                <th scope="col">Order ID</th>
+                                                <th scope="col">Customer Name</th>
+                                                <th scope="col">Phone Number</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Product Price</th>
+                                                <th scope="col">Product Qty</th>
+                                                <th scope="col">Order Date</th>
+                                            
+                                            
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            
-                                            <td class="font-primary">John</td>
-                                            <td class="font-warning">12332145653</td>
-                                            <td class="digits">$120.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td class="font-primary">John</td>
-                                            <td class="font-warning">12332145653</td>
-                                            <td class="digits">$120.00</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td class="font-primary">John</td>
-                                            <td class="font-warning">12332145653</td>
-                                            <td class="digits">$120.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td class="font-primary">John</td>
-                                            <td class="font-warning">12332145653</td>
-                                            <td class="digits">$120.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td class="font-primary">John</td>
-                                            <td class="font-warning">12332145653</td>
-                                            <td class="digits">$120.00</td>
-                                        </tr>
+                                            <?php
+                                            $query = 'SELECT * FROM order_table 
+                                            LEFT JOIN customer ON
+                                            order_table.phone = customer.phone ORDER BY order_date DESC LIMIT 10';
+                                            $result = mysqli_query($db, $query) or die("database error:" . mysqli_error($db));
+
+                                            while ($row = mysqli_fetch_array($result)) {
+                                            ?>     
+                                                <tr>
+                                                    <td><?php echo $row['order_id'];?></td>
+                                                    
+                                                    <td class="font-primary"><a href="f.php"><?php echo $row['lname']; echo '  ' ; echo $row['fname']; ?></a></td>
+                                                    <td class="font-warning"><?php echo $row['phone'];?></td>
+                                                    <td class="digits"><?php echo $row['product_name'];?></td>
+                                                    <td class="digits">&#8373; <?php echo sprintf("%01.2f", $row['product_price']);?></td>
+                                                    <td class="digits"><?php echo $row['product_qty'];?></td>
+                                                    <td class="digits"><?php echo $row['order_date'];?></td>
+                                                </tr>
+                                            <?php }?>
+                                       
                                         </tbody>
                                     </table>
-                                    <a href="order.php" class="btn btn-primary">View All Orders</a>
+                               
+                                    
                                 </div>
+                                <a href="order.php" class="btn btn-primary">View All Orders</a>
                                 <div class="code-box-copy">
                                     <button class="code-box-copy__btn btn-clipboard"
                                             data-clipboard-target="#example-head1" title="" data-original-title="Copy">
