@@ -14,9 +14,9 @@ class CreateDb{
     public function __construct(
         $dbname = "ecomm",
         $tablename = "Productdb",
-        $servername = "localhost",
+        $servername = "127.0.0.1",
         $username = "root",
-        $password = ""
+        $password = "rootpass"
     )
     {
         $this->dbname = $dbname;

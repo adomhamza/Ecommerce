@@ -2,7 +2,7 @@
 	session_start();
 	
 	// connect to database
-	$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+	$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 	// variable declaration
 	$username = "";

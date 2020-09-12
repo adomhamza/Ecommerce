@@ -15,7 +15,7 @@ $errors = array();
 $_SESSION['success'] = "";
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
