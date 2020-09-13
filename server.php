@@ -79,7 +79,7 @@ if (isset($_POST['login_user'])) {
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) {
-			$_SESSION['name'] = $name;
+			$_SESSION['acc-firstname'] = $phone;
 			$_SESSION['success'] = "You are now logged in";
 			$_SESSION['loggedIn'] = true;
 

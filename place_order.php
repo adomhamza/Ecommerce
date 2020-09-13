@@ -2,7 +2,9 @@
 
 include('server.php');
 
-
+if (isset($_SESSION['acc-firstname'])) {
+    header('f.php');
+}
 
 
 if (!isset($_SESSION['products'])) {
