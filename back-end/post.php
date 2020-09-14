@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$con = new mysqli("localhost","root","","ecomm");
+$con = new mysqli("127.0.0.1","root","rootpass","ecomm");
 
 ?>
 

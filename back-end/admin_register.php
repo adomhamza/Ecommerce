@@ -12,32 +12,32 @@
     <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
-  <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
     <title>Trayton - Login</title>
 
-   <!-- Google font-->
-   <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 
-  <!-- Font Awesome-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Font Awesome-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-  <!-- Flag icon-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/themify.css" />
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/themify.css" />
 
-  <!-- slick icon-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css" />
+    <!-- slick icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css" />
 
-  <!-- jsgrid css-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/jsgrid.css" />
+    <!-- jsgrid css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/jsgrid.css" />
 
-  <!-- Bootstrap css-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
 
-  <!-- App css-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/admin.css" />
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/admin.css" />
 
 </head>
 
@@ -167,33 +167,42 @@
                         <div class="card tab2-card">
                             <div class="card-body">
                                 <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+
                                     <li class="nav-item">
-                                    <a class="nav-link active" id="top-profile-tab" data-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                                        <a class="nav-link active" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-controls="top-contact" aria-selected="true"><i class="fa fa-key" aria-hidden="true"></i> Register</a>
                                     </li>
-                                    
                                 </ul>
                                 <div class="tab-content" id="top-tabContent">
-                                    <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
-                                        <form  method="post" action="login.php">
+
+                                    <div class="tab-pane fade show active" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                                        <form class="form-horizontal auth-form" method="post" action="admin_register.php">
                                             <?php echo display_error(); ?>
                                             <div class="form-group">
-                                                <input required="" type="text" name="username" class="form-control" placeholder="Phone">
+                                                <input required="" name="username" value="<?php echo $username; ?>" type="text" class="form-control" placeholder="Phone Number" id="exampleInputEmail12">
                                             </div>
                                             <div class="form-group">
-                                                <input required="" type="password" name="password" class="form-control" placeholder="Password">
+                                                <input required="" name="email" value="<?php echo $email; ?>" type="email" class="form-control" placeholder="Email" id="exampleInputEmail12">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input required="" name="password_1" type="password" class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <input required="" name="password_2" type="password" class="form-control" placeholder="Confirm Password">
                                             </div>
                                             <div class="form-terms">
                                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                                    <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
-                                                    <a href="#" class="btn btn-default forgot-pass">lost your password</a>
+                                                    <input required type="checkbox" class="custom-control-input" id="customControlAutosizing1">
+                                                    <label class="custom-control-label" for="customControlAutosizing1"><span>I agree all statements in <a href="#" class="pull-right">Terms &amp; Conditions</a></span></label>
                                                 </div>
                                             </div>
+
+                                            
                                             <div class="form-button">
-                                                <button class="btn btn-primary" type="submit" name="login_btn">Login</button>
+                                                <button class="btn btn-primary" type="submit" name="register_btn">Register</button>
                                             </div>
-                                           <!--  <div class="form-footer">
-                                                <span>Or Login up with social platforms</span>
+                                            <!-- <div class="form-footer">
+                                                <span>Or Sign up with social platforms</span>
                                                 <ul class="social">
                                                     <li><a class="icon-facebook" href="#"></a></li>
                                                     <li><a class="icon-twitter" href="#"></a></li>
@@ -201,42 +210,38 @@
                                                     <li><a class="icon-pinterest" href="#"></a></li>
                                                 </ul>
                                             </div> -->
-                                            <!-- <p>
-			Not yet a member? <a href="admin_register.php">Sign up</a>
-		</p> -->
                                         </form>
                                     </div>
-                                    
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="admin_register.php" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>Sign Up</a>
+                <a href="login.php" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>Log In</a>
             </div>
         </div>
     </div>
 
     <!-- latest jquery-->
-  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
 
-<!-- Bootstrap js-->
-<script src="../assets/js/popper.min.js"></script>
-<script src="../assets/js/bootstrap.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
 
-<!-- Sidebar jquery-->
-<script src="../assets/js/sidebar-menu.js"></script>
-<script src="../assets/js/slick.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/sidebar-menu.js"></script>
+    <script src="../assets/js/slick.js"></script>
 
-<!-- Jsgrid js-->
-<script src="../assets/js/jsgrid/jsgrid.min.js"></script>
+    <!-- Jsgrid js-->
+    <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
 
-<!-- lazyload js-->
-<script src="../assets/js/lazysizes.min.js"></script>
+    <!-- lazyload js-->
+    <script src="../assets/js/lazysizes.min.js"></script>
 
-<!--script admin-->
-<script src="../assets/js/admin-script.js"></script>
+    <!--script admin-->
+    <script src="../assets/js/admin-script.js"></script>
     <script>
         $('.single-item').slick({
             arrows: false,
@@ -246,7 +251,6 @@
 
 </body>
 
-<!-- Mirrored from themes.pixelstrap.com/multikart/back-end/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jul 2020 12:41:29 GMT -->
 
 </html>
 <?php
@@ -273,34 +277,34 @@ if (isset($_SESSION['userlogin'])) {
   <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
   <title>Admin Login</title> -->
 
-  <!-- Google font-->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+<!-- Google font-->
+<!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
  -->
-  <!-- Font Awesome-->
-  <!-- <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css" />
+<!-- Font Awesome-->
+<!-- <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
  -->
-  <!-- Flag icon-->
-  <!-- <link rel="stylesheet" type="text/css" href="../assets/css/themify.css" />
+<!-- Flag icon-->
+<!-- <link rel="stylesheet" type="text/css" href="../assets/css/themify.css" />
  -->
-  <!-- slick icon-->
-  <!-- <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
+<!-- slick icon-->
+<!-- <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css" />
  -->
-  <!-- jsgrid css-->
+<!-- jsgrid css-->
 <!--   <link rel="stylesheet" type="text/css" href="../assets/css/jsgrid.css" />
  -->
-  <!-- Bootstrap css-->
+<!-- Bootstrap css-->
 <!--   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
  -->
-  <!-- App css-->
-  <!-- <link rel="stylesheet" type="text/css" href="../assets/css/admin.css" />
+<!-- App css-->
+<!-- <link rel="stylesheet" type="text/css" href="../assets/css/admin.css" />
 </head>
  -->
 <!-- <body> -->
-  <!-- page-wrapper Start-->
- <!--  <div class="page-wrapper">
+<!-- page-wrapper Start-->
+<!--  <div class="page-wrapper">
     <div class="authentication-box">
       <div class="container">
         <div class="row">
@@ -466,25 +470,25 @@ if (isset($_SESSION['userlogin'])) {
     </div>
   </div>
  -->
-  <!-- latest jquery-->
+<!-- latest jquery-->
 <!--   <script src="../assets/js/jquery-3.3.1.min.js"></script>
  -->
-  <!-- Bootstrap js-->
-  <!-- <script src="../assets/js/popper.min.js"></script>
+<!-- Bootstrap js-->
+<!-- <script src="../assets/js/popper.min.js"></script>
   <script src="../assets/js/bootstrap.js"></script>
  -->
-  <!-- Sidebar jquery-->
- <!--  <script src="../assets/js/sidebar-menu.js"></script>
+<!-- Sidebar jquery-->
+<!--  <script src="../assets/js/sidebar-menu.js"></script>
   <script src="../assets/js/slick.js"></script>
  -->
-  <!-- Jsgrid js-->
+<!-- Jsgrid js-->
 <!--   <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
  -->
-  <!-- lazyload js-->
+<!-- lazyload js-->
 <!--   <script src="../assets/js/lazysizes.min.js"></script>
  -->
-  <!--script admin-->
-  <!-- <script src="../assets/js/admin-script.js"></script>
+<!--script admin-->
+<!-- <script src="../assets/js/admin-script.js"></script>
   <script>
     $(".single-item").slick({
       arrows: true,
@@ -492,7 +496,7 @@ if (isset($_SESSION['userlogin'])) {
     });
   </script> -->
 
-  <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script>
     $(function() {

@@ -1,7 +1,11 @@
 <?php
-session_start();
+include('functions.php');
 
-if (!isset($_SESSION['userlogin'])) {
+
+
+
+
+if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
 
@@ -11,7 +15,7 @@ if (isset($_GET['logout'])) {
     header('Location: login.php');
 }
 // Create database connection
-$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 
 if (isset($_POST['upload'])) {
@@ -157,7 +161,7 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
                     <div><img class="img-60 rounded-circle lazyloaded blur-up" src="../assets/images/dashboard/man.png"
                               alt="#">
                     </div>
-                    <h6 class="mt-3 f-14"><?php echo $_SESSION['userlogin']['username']; ?></h6>
+                    <h6 class="mt-3 f-14"><?php echo $_SESSION['user']['user_type']; ?></h6>
                     <!-- <p>General Manager</p> -->
                 </div>
                 <ul class="sidebar-menu">
