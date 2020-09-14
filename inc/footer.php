@@ -22,7 +22,8 @@
                                     <div class="col-md-6">
                                         <ul class="contact-info">
                                             <li>
-                                                <span class="contact-info-label">Phone:</span>Toll Free <a href="tel:">(123) 456-7890</a>
+                                                <span class="contact-info-label">Phone:</span> <a href="tel:">(+233) 545 854 178</a> <br> <a href="tel:">(+233) 560 635 868</a>
+
                                             </li>
                                             <li>
                                                 <span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">mail@example.com</a>

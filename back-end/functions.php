@@ -21,7 +21,7 @@
 
 	if (isset($_GET['logout'])) {
 		session_destroy();
-		unset($_SESSION['user']);
+		unset($_SESSION['admin_user']);
 		header("loaction: login.php");
 	}
 
@@ -68,7 +68,7 @@
 				// get id of the created user
 				$logged_in_user_id = mysqli_insert_id($db);
 
-				$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
+				$_SESSION['admin_user'] = getUserById($logged_in_user_id); // put logged in user in session
 				$_SESSION['success']  = "You are now logged in";
 				header('location: welcome.php');				
 			}
@@ -115,11 +115,11 @@
 				$logged_in_user = mysqli_fetch_assoc($results);
 				if ($logged_in_user['user_type'] == 'admin') { 
 
-					$_SESSION['user'] = $logged_in_user;
+					$_SESSION['admin_user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
 					header('location: admin.php');		  
 				}else{
-					$_SESSION['user'] = $logged_in_user;
+					$_SESSION['admin_user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
 
 					header('location: welcome.php');
@@ -132,7 +132,7 @@
 
 	function isLoggedIn()
 	{
-		if (isset($_SESSION['user'])) {
+		if (isset($_SESSION['admin_user'])) {
 			return true;
 		}else{
 			return false;
@@ -141,7 +141,7 @@
 
 	function isAdmin()
 	{
-		if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
+		if (isset($_SESSION['admin_user']) && $_SESSION['admin_user']['user_type'] == 'admin' ) {
 			return true;
 		}else{
 			return false;
@@ -165,5 +165,24 @@
 			echo '</div>';
 		}
 	}
+
+
+
+
+	if (isset($_POST['upload'])) {
+    
+		$category_name = mysqli_real_escape_string($db, $_POST['category_name']);
+		
+		$id = $_SESSION['admin_user']["admin_id"];
+		$sql = "INSERT INTO category (category_name,createdBy,updatedBy) VALUES ('{$category_name}', '{$id}' , '{$id}')";
+	
+		// execute query
+		mysqli_query($db, $sql);
+	
+		
+	
+	
+	}
+	
 
 ?>

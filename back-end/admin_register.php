@@ -8,12 +8,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="description" content="Jummai admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Jummai admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
     <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
-    <title>Trayton - Login</title>
+    <title>Jummai - Login</title>
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
@@ -144,19 +144,19 @@
                             <div class="single-item">
                                 <div>
                                     <div>
-                                        <h3>Welcome to Multikart</h3>
+                                        <h3>Welcome to Jummai</h3>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <h3>Welcome to Multikart</h3>
+                                        <h3>Welcome to Jummai</h3>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <h3>Welcome to Multikart</h3>
+                                        <h3>Welcome to Jummai</h3>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
                                     </div>
                                 </div>
@@ -168,9 +168,9 @@
                             <div class="card-body">
                                 <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
 
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-controls="top-contact" aria-selected="true"><i class="fa fa-key" aria-hidden="true"></i> Register</a>
-                                    </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link active" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-controls="top-contact" aria-selected="true"><i class="fa fa-key" aria-hidden="true"></i> Register</a>
+                                  </li>
                                 </ul>
                                 <div class="tab-content" id="top-tabContent">
 
@@ -270,8 +270,8 @@ if (isset($_SESSION['userlogin'])) {
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Trayton admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities." />
-  <meta name="keywords" content="admin template, Trayton admin template, dashboard template, flat admin template, responsive admin template, web app" />
+  <meta name="description" content="Jummai admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities." />
+  <meta name="keywords" content="admin template, Jummai admin template, dashboard template, flat admin template, responsive admin template, web app" />
   <meta name="author" content="pixelstrap" />
   <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
   <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon" />
@@ -404,7 +404,7 @@ if (isset($_SESSION['userlogin'])) {
               <div class="single-item">
                 <div>
                   <div>
-                    <h3>Welcome to Trayton</h3>
+                    <h3>Welcome to Jummai</h3>
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the
@@ -414,7 +414,7 @@ if (isset($_SESSION['userlogin'])) {
                 </div>
                 <div>
                   <div>
-                    <h3>Welcome to Trayton</h3>
+                    <h3>Welcome to Jummai</h3>
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the
@@ -424,7 +424,7 @@ if (isset($_SESSION['userlogin'])) {
                 </div>
                 <div>
                   <div>
-                    <h3>Welcome to Trayton</h3>
+                    <h3>Welcome to Jummai</h3>
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the

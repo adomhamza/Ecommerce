@@ -1,54 +1,20 @@
 <?php
+
 include('functions.php');
+//session_start();
+//$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
+ 
 
-
-
-
-
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
+if (!isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
 }
 
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION);
-    header('Location: login.php');
-}
-// Create database connection
-$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 
-if (isset($_POST['upload'])) {
-    // Get image name
-    // $image = $_FILES['product_image']['name'];
-    // Get text
-    /*  $product_name = mysqli_real_escape_string($db, $_POST['product_name']);
-     $product_price = mysqli_real_escape_string($db, $_POST['product_price']);
-     $product_description = mysqli_real_escape_string($db, $_POST['product_description']);
-
-     $product_quantity = mysqli_real_escape_string($db, $_POST['product_quantity']);
-     $id = $_SESSION['userlogin']["admin_id"];
-      */
-    $category_name = mysqli_real_escape_string($db, $_POST['category_name']);
-    // image file directory
-    /*  $target = "images/".basename($image);
-*/
-    $id = $_SESSION['userlogin']["admin_id"];
-    $sql = "INSERT INTO category (category_name,createdBy,updatedBy) VALUES ('{$category_name}', '{$id}' , '{$id}')";
-
-    // execute query
-    mysqli_query($db, $sql);
-
-    /* if (move_uploaded_file($_FILES['product_image']['tmp_name'], $target)) {
-        $msg = "Image uploaded successfully";
-    }else{
-        $msg = "Failed to upload image";
-    } */
 
 
-}
 
-$cat = mysqli_query($db, 'SELECT * FROM category');
 
 ?>
 <!DOCTYPE html>
@@ -60,9 +26,9 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Trayton admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+          content="Jummai admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords"
-          content="admin template, Trayton admin template, dashboard template, flat admin template, responsive admin template, web app">
+          content="admin template, Jummai admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
@@ -150,69 +116,7 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
     <div class="page-body-wrapper">
 
         <!-- Page Sidebar Start-->
-        <div class="page-sidebar">
-            <div class="main-header-left d-none d-lg-block">
-                <div class="logo-wrapper"><a href="admin.php"><img class="blur-up lazyloaded"
-                                                                   src="../assets/images/dashboard/multikart-logo.png"
-                                                                   alt=""></a></div>
-            </div>
-            <div class="sidebar custom-scrollbar">
-                <div class="sidebar-user text-center">
-                    <div><img class="img-60 rounded-circle lazyloaded blur-up" src="../assets/images/dashboard/man.png"
-                              alt="#">
-                    </div>
-                    <h6 class="mt-3 f-14"><?php echo $_SESSION['user']['user_type']; ?></h6>
-                    <!-- <p>General Manager</p> -->
-                </div>
-                <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="admin.php"><i data-feather="home"></i><span>Dashboard</span></a>
-                    </li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Products</span><i
-                                    class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="#"><i class="fa fa-circle"></i>
-                                    <span>Physical</span> <i class="fa fa-angle-right pull-right"></i>
-                                </a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="category.php"><i class="fa fa-circle"></i>Category</a></li>
-
-                                    <li><a href="product-list.html"><i class="fa fa-circle"></i>Product List</a></li>
-                                    <li><a href="product-detail.html"><i class="fa fa-circle"></i>Product Detail</a>
-                                    </li>
-                                    <li><a href="add-product.php"><i class="fa fa-circle"></i>Add Product</a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Sales</span><i
-                                    class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="order.php"><i class="fa fa-circle"></i>Orders</a></li>
-                            <li><a href="transactions.html"><i class="fa fa-circle"></i>Transactions</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i><span>Users</span><i
-                                    class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="user-list.html"><i class="fa fa-circle"></i>User List</a></li>
-                            <li><a href="create-user.html"><i class="fa fa-circle"></i>Create User</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li><a class="sidebar-header" href="reports.html"><i
-                                    data-feather="bar-chart"></i><span>Reports</span></a></li>
-
-                    <li><a class="sidebar-header" href="admin.php?logout=true"><i
-                                    data-feather="log-in"></i><span>Logout</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <?php include('incb/sidebar.php') ?>
         <!-- Page Sidebar Ends-->
 
         <!-- Right sidebar Start-->
@@ -274,7 +178,7 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
                                                             <div class="form-group">
                                                                 <label for="category_name" class="mb-1">Category Name
                                                                     :</label>
-                                                                <input class="form-control" id="category_name"
+                                                                <input class="form-control" id="category_name" required
                                                                        name="category_name" type="text">
                                                             </div>
                                                            
@@ -303,14 +207,17 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
                                         <tr>
                                             <th>No</th>
                                             <th>Category Name</th>
+                                            <th>Created By</th>
                                             <th>Date Created</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php while ($row = mysqli_fetch_array($cat)) { ?>
+                                        <?php $cat = mysqli_query($db, 'SELECT * FROM category ORDER BY category_id DESC');
+                                         while ($row = mysqli_fetch_array($cat)) { ?>
                                             <tr>
                                                 <td> <?php echo $row['category_id']; ?> </td>
                                                 <td> <?php echo $row['category_name']; ?> </td>
+                                                <td> <?php echo $row['createdBy']; ?> </td>
                                                 <td> <?php echo $row['createdAt']; ?> </td>
                                             </tr>
                                             <?php
@@ -321,8 +228,8 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
                                         <tr>
                                             <th>No</th>
                                             <th>Category Name</th>
+                                            <th>Created By</th>
                                             <th>Date Created</th>
-
                                         </tr>
 
                                         </tfoot>
@@ -342,7 +249,7 @@ $cat = mysqli_query($db, 'SELECT * FROM category');
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 footer-copyright">
-                        <p class="mb-0">Copyright 2020 © Trayton All rights reserved.</p>
+                        <p class="mb-0">Copyright 2020 © Jummai All rights reserved.</p>
                     </div>
                     <div class="col-md-6">
                         <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>

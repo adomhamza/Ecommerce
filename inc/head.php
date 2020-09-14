@@ -63,7 +63,7 @@
                 </button>
                 <div class="header-contact">
                     <span>Call us now</span>
-                    <a href="tel:#">(123) 456 7890</a>
+                    <a href="tel:#">(+233) 545 854 178</a>
                 </div><!-- End .header-contact -->
 
                 <div class="dropdown cart-dropdown">

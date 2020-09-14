@@ -1,18 +1,15 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
+include('functions.php');
+
+
+
+if (!isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
 }
 
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION);
-    header('Location: login.php');
-}
 
-// Create database connection
-$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 // Initialize message variable
 $msg = '';
