@@ -2,7 +2,7 @@
 session_start();
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$mysqli = new mysqli('localhost', 'root', '', 'ecomm');
+$mysqli = new mysqli('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 // Check connection
 if (false === $mysqli) {

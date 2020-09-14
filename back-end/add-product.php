@@ -12,7 +12,7 @@ if (isset($_GET['logout'])) {
 }
 
 // Create database connection
-$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 // Initialize message variable
 $msg = '';

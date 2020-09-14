@@ -15,7 +15,7 @@ $errors = array();
 $_SESSION['success'] = "";
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+$db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -79,7 +79,7 @@ if (isset($_POST['login_user'])) {
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) {
-			$_SESSION['name'] = $name;
+			$_SESSION['acc-firstname'] = $phone;
 			$_SESSION['success'] = "You are now logged in";
 			$_SESSION['loggedIn'] = true;
 

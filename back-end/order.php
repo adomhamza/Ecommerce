@@ -11,7 +11,7 @@ if (isset($_GET['logout'])) {
     header('Location: login.php');
 }
 // Create database connection
-$db = mysqli_connect('localhost', 'root', '', 'ecomm');
+$db = mysqli_connect('127.0.0.1', 'root', '', 'ecomm');
 
 
 if (isset($_POST['upload'])) {
