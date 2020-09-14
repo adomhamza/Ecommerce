@@ -27,8 +27,8 @@ if (!isset($_SESSION['products'])) {
     <title>✨Place Order -Trayton Store✨</title>
 
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Bootstrap eCommerce Template">
-    <meta name="author" content="SW-THEMES">
+    <meta name="description" content="Porto - ">
+    <meta name="author" content="@adomhamza">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
