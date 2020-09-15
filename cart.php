@@ -169,12 +169,12 @@ include("inc/config.inc.php");
                                     <tbody>
                                         <tr>
                                             <td>Subtotal</td>
-                                            <td><?php echo $subtotals ?></td>
+                                            <td><?php echo $currency; echo sprintf("%01.2f",$subtotals); ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Tax</td>
-                                            <td>$0.00</td>
+                                            <td><?php echo $currency; ?> 0.00</td>
                                         </tr>
                                     </tbody>
 
@@ -193,7 +193,7 @@ include("inc/config.inc.php");
 
                                 </table>
                                 <div class="checkout-methods">
-                                    <a href="place_order.php" class="btn btn-block btn-sm btn-primary">Confirm & Checkout</a>
+                                    <a href="checkout-review.php" class="btn btn-block btn-sm btn-primary">Confirm & Checkout</a>
 
                                 </div><!-- End .checkout-methods -->
 

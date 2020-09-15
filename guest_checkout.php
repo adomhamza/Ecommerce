@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>✨Jummai - Register✨</title>
+    <title>✨Trayton - Guest Checkout</title>
 
-    <meta name="keywords" content="Online Shopping" />
-    <meta name="description" content="Jummai eCommerce">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="JUMMAI eCommerce">
     <meta name="author" content="SW-THEMES">
 
     <!-- Favicon -->
@@ -49,7 +49,7 @@
                 <div class="container">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Register</li>
+                        <li class="breadcrumb-item active" aria-current="page">Guest Checkout</li>
                     </ol>
                 </div><!-- End .container -->
             </nav>
@@ -57,17 +57,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 order-lg-last dashboard-content">
-                        <h2 class="step-title">Register</h2>
+                        <h2 class="step-title">Guest Checkout</h2>
 
-                        <form form method="post" action="register.php">
+                        <form form method="post" action="guest_checkout.php">
                             <?php include('errors.php'); ?>
                             <div class="row">
                                 <div class="col-sm-11">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group required-field">
-                                                <label for="acc-name">First Name</label>
-                                                <input type="text" class="form-control" id="acc-name" name="acc-firstname" required>
+                                                <label for="guest-name">First Name</label>
+                                                <input type="text" class="form-control" id="guest-name" name="guest-firstname" required>
                                             </div><!-- End .form-group -->
                                         </div><!-- End .col-md-4 -->
 
@@ -79,8 +79,8 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group required-field">
-                                                <label for="acc-lastname">Last Name</label>
-                                                <input type="text" class="form-control" id="acc-lastname" name="acc-lastname" required>
+                                                <label for="guest-lastname">Last Name</label>
+                                                <input type="text" class="form-control" id="guest-lastname" name="guest-lastname" required>
                                             </div><!-- End .form-group -->
                                         </div><!-- End .col-md-4 -->
                                     </div><!-- End .row -->
@@ -88,21 +88,21 @@
                             </div><!-- End .row -->
 
                             <div class="form-group required-field">
-                                <label for="acc-phone">Phone Number</label>
-                                <input type="tel" class="form-control" id="acc-phone" title="For delivery questions." name="acc-phone" required>
+                                <label for="guest-phone">Phone Number</label>
+                                <input type="tel" class="form-control" id="guest-phone" title="For delivery questions." name="guest-phone" required>
                             </div><!-- End .form-group -->
 
 
                             <div class="form-group required-field">
-                                <label for="acc-email">Email</label>
-                                <input type="email" class="form-control" id="acc-email" name="acc-email" required>
+                                <label for="guest-email">Email</label>
+                                <input type="email" class="form-control" id="guest-email" name="guest-email" required>
                             </div><!-- End .form-group -->
 
 
                             <div class="form-group required-field">
-                                <label for="acc-region">Region</label>
+                                <label for="guest-region">Region</label>
                                 <div class="select-custom">
-                                    <select class="form-control" required name="acc-region">
+                                    <select class="form-control" required name="guest-region">
 
                                         <option value="" disabled selected>Select Region</option>
                                         <option value="Ahafo Region">Ahafo Region</option>
@@ -126,19 +126,12 @@
                             </div><!-- End .form-group -->
 
                             <div class="form-group required-field">
-                                <label for="acc-city">City</label>
-                                <input type="text" class="form-control" id="acc-city" name="acc-city" required>
+                                <label for="guest-city">City</label>
+                                <input type="text" class="form-control" id="guest-city" name="guest-city" required>
                             </div><!-- End .form-group -->
 
-                            <div class="form-group required-field">
-                                <label for="acc-password">PIN</label>
-                                <input type="password" class="form-control" id="acc-password" name="acc-password" required>
-                            </div><!-- End .form-group -->
-
-                            <div class="form-group required-field">
-                                <label for="acc-password_2">Confirm PIN</label>
-                                <input type="password" class="form-control" id="acc-password_2" name="acc-password_2" required>
-                            </div><!-- End .form-group -->
+                        
+                            
 
                             <div class="mb-2"></div><!-- margin -->
 
@@ -160,7 +153,7 @@
                                 <a href="login.php"><i class="icon-angle-double-left"></i>Back</a>
 
                                 <div class="form-footer-right">
-                                    <button type="submit" name="register_user" class="btn btn-primary">Register</button>
+                                    <button type="submit" name="register_user" class="btn btn-primary">NEXT</button>
                                 </div>
                             </div><!-- End .form-footer -->
                         </form>

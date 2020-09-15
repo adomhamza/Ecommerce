@@ -79,7 +79,7 @@
                                         <input type="password" name="password" class="form-control" required>
                                     </div><!-- End .form-group -->
 
-                                    <p>Sign in if you already have an account with us or <a href="register.php">Sign Up Here</a>
+                                    <p>Don't have an account? <a href="register.php">Sign Up Here</a> or <a href="guest_checkout.php">Checkout as Guest.</a>
                                     </p>
                                     
                                     <div class="form-footer">

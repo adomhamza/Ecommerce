@@ -10,14 +10,14 @@ include("inc/config.inc.php");
 if (!isset($_SESSION['loggedIn'])) {
     $_SESSION['msg'] = "You must log in first";
     $_SESSION['redirectUrl'] =  $_SERVER['REQUEST_URI'];
-    header('location: login_user.php');
+    header('location: login.php');
 }
 
 
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['name']);
-    header("location: login_user.php");
+    header("location: login.php");
 }
 
 ?>
