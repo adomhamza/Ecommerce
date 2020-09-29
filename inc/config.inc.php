@@ -6,3 +6,4 @@ $taxes	= array(
 	'Service Tax' => 5,
 	'Other Tax' => 10
 );
+?>

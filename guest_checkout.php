@@ -1,4 +1,11 @@
-<?php include('server.php') ?>
+<?php include('server.php'); 
+
+if (count($_SESSION["products"])>0) {
+    $_SESSION['msg'] = "You must log in first";
+    
+    header('location: index.php');
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

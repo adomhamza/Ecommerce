@@ -91,8 +91,7 @@
 
 
 
-                    <!--  <li class="float-right"><a href="https://1.envato.market/DdLk5" target="_blank">Buy Porto!</a></li>
-                            <li class="float-right"><a href="#">Special Offer!</a></li> -->
+                    
                 </ul>
             </nav>
         </div><!-- End .header-bottom -->

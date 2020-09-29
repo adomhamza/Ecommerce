@@ -1,6 +1,14 @@
 <?php
 session_start();
 include("inc/config.inc.php");
+$_SESSION['sales'] =[];
+
+if (isset($_GET['remove'])) {
+    unset($_SESSION['products'][$_GET['index']]);
+    unset($_SESSION['sales']);
+        
+    //header('location: index.php');
+}
 
 ?>
 <!DOCTYPE html>
@@ -15,7 +23,7 @@ include("inc/config.inc.php");
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Ecommerce Store">
-    <meta name="author" content="SW-THEMES">
+    <meta name="author" content="adomhamza">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
@@ -89,7 +97,7 @@ include("inc/config.inc.php");
                                         $cart_box = '<ul class="cart-products-loaded">';
                                         $total = 0;
                                         $subtotals = 0;
-                                        foreach ($_SESSION["products"] as $product) {
+                                        foreach ($_SESSION["products"] as $key => $product) {
                                             $product_image = $product["product_image"];
                                             $product_name = $product["product_name"];
                                             $product_price = $product["product_price"];
@@ -124,8 +132,7 @@ include("inc/config.inc.php");
 
 
                                                     <div class="float-right">
-                                                        <!-- <a href="#" title="Edit product" class="btn-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a> -->
-                                                        <a href="#" title="Remove product" data-code="<?php echo $product_code; ?>" class="btn-remove remove-item"><span class="sr-only">Remove</span></a>
+                                                        <a href="cart.php?remove=true&index=<?php echo $key ?? '0'; ?>" title="Remove product" >Remove</a>
                                                     </div><!-- End .float-right -->
                                                 </td>
                                             </tr>

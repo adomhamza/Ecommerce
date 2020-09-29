@@ -45,6 +45,7 @@ $(document).ready(function () {
     $(this).parent().parent().fadeOut();
     $.getJSON("manage_cart.php", { remove_code: pcode }, function (data) {
       $("#cart-container").html(data.products);
+      
       window.location.reload();
     });
   });

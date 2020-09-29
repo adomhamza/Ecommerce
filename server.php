@@ -14,6 +14,12 @@ $name    = "";
 $email = "";
 $errors = array();
 $_SESSION['success'] = "";
+$_SESSION['guest_fname'] = '';
+$_SESSION['guest_lname'] = '';
+$_SESSION['guest_email'] = '';
+$_SESSION['guest_city'] = '';
+$_SESSION['guest_region'] = '';
+$_SESSION['guest_phone'] = '';
 
 // connect to database
 $db = mysqli_connect('127.0.0.1', 'root', 'rootpass', 'ecomm');
@@ -264,6 +270,14 @@ if (isset($_POST['guest-submit'])) {
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 
+		$_SESSION['guest_fname'] = $guest_firstname;
+		$_SESSION['guest_lname'] = $guest_lastname;
+		$_SESSION['guest_email'] = $guest_email;
+		$_SESSION['guest_city'] = $guest_city;
+		$_SESSION['guest_region'] = $guest_region;
+		$_SESSION['guest_phone'] = $guest_phone;
+		$_SESSION['success'] = "You are now logged in";
+		$_SESSION['loggedIn'] = true;
 		
 		$query1 = "INSERT INTO customer (phone, fname, lname, email, region, city, pin) 
 					  VALUES('$guest_phone', '$guest_firstname', '$guest_lastname', '$guest_email'
@@ -273,14 +287,7 @@ if (isset($_POST['guest-submit'])) {
 
 		
 
-		$_SESSION['guest_fname'] = $guest_firstname;
-		$_SESSION['guest_lname'] = $guest_lastname;
-		$_SESSION['guest_email'] = $guest_email;
-		$_SESSION['guest_city'] = $guest_city;
-		$_SESSION['guest_region'] = $guest_region;
-		$_SESSION['guest_phone'] = $guest_phone;
-		$_SESSION['success'] = "You are now logged in";
-		$_SESSION['loggedIn'] = true;
+		
 
 		
 	}
@@ -313,7 +320,7 @@ if (isset($_POST['guest-submit'])) {
 			mysqli_query($db, $query);
 		}
 
-		header('location:' . $_SESSION['redirectUrl']);
+		header('location: success.php');
 
 	}
 }
